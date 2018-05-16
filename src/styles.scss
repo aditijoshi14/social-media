@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+@import '/global/style/_fonts.scss';
+@import '/global/style/_colors.scss';
+body{
+    margin: 0;
+}
+
+/** Styling for Sign up and Sign In Card **/
+.sign-up-card, .sign-in-card{
+    padding: 50px;
+    margin: 20px;
+    max-width: 350px;
+    background: -webkit-linear-gradient(top, $primary-color-1, $primary-color-2);
+    height: 100%;
+    color: $text-color;
+    text-align: center;
+    box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    @include main-font;
+
+    p, span{
+        font-size: 14px;
+    }
+
+    img{
+        width: 80px;
+    }
+}
+
+form input{
+    padding: 15px;
+    width: 100%;
+    font-size: 16px;
+    background: $input-background;
+    margin: 0 0 15px;
+    box-sizing: border-box;
+}
+
+.input-with-icon{
+    text-align: left;
+    position: relative;
+
+    fa{
+        position: absolute;
+        left:0;
+        top:8px;
+        padding: 9px 8px;
+        color: $input-color;
+    }
+
+    input{
+        padding: 15px 15px 15px 30px;
+    }
+}
+
+/** Styling end for Sign up and Sign In Card **/
