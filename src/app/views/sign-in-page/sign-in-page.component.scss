@@ -1,0 +1,13 @@
+@import '../../../global/style/_mixins.scss';
+.sign-in-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.sign-in-page::after{
+    @include background-view-sign;
+}
+

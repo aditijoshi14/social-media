@@ -1,0 +1,14 @@
+@import '../../../global/style/_mixins.scss';
+.sign-up-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    min-height: min-content;
+}
+
+.sign-up-page::after{
+    @include background-view-sign;
+}
+

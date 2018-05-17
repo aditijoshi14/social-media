@@ -9,6 +9,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { PostComponent } from './components/post/post.component';
+import { SignInPageComponent } from './views/sign-in-page/sign-in-page.component';
+import { SignUpPageComponent } from './views/sign-up-page/sign-up-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { PostComponent } from './components/post/post.component';
     NavBarComponent,
     SignUpComponent,
     FeedComponent,
-    PostComponent
+    PostComponent,
+    SignInPageComponent,
+    SignUpPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,2 +1,11 @@
+@import '../../../global/style/_mixins.scss';
 
+.sign-up-card{
+    @include style-card-sign
+}
 
+@media only screen and (max-width: 420px) {
+    .sign-up-card{
+        @include style-card-sign-mobile;
+    }
+}
