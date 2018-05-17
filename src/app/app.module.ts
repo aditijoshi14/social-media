@@ -11,6 +11,7 @@ import { FeedComponent } from './components/feed/feed.component';
 import { PostComponent } from './components/post/post.component';
 import { SignInPageComponent } from './views/sign-in-page/sign-in-page.component';
 import { SignUpPageComponent } from './views/sign-up-page/sign-up-page.component';
+import { FeedPageComponent } from './views/feed-page/feed-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SignUpPageComponent } from './views/sign-up-page/sign-up-page.component
     FeedComponent,
     PostComponent,
     SignInPageComponent,
-    SignUpPageComponent
+    SignUpPageComponent,
+    FeedPageComponent
   ],
   imports: [
     BrowserModule,
