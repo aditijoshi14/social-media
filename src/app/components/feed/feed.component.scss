@@ -1,0 +1,71 @@
+@import '../../../global/style/_colors.scss';
+@import '../../../global/style/_fonts.scss';
+
+.feed{
+    background: $background-color;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.feed_container{
+    max-width: 1012px;
+    width:100%;
+    margin: 0 40px;
+    display: flex;
+    justify-content: center;
+    
+
+    .menu_feed{
+        min-width: 200px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        padding:10px 5px;
+        background: $container-color;
+
+        .menu_feed_container{
+            height: 400px;
+            width: 100%;
+            border: 1px solid $border-color;
+        }
+    }
+
+    .main_feed{
+        float: left;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        padding:10px 5px;
+        background: $container-color;
+
+        .feed_box{
+            border: 0px;
+            padding: 15px;
+            font-size: 20px;
+            text-align: left;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+            border: 1px solid $border-color;
+        }
+
+        .main_feed_post{
+            margin: 10px 0px;
+        }
+    }   
+}
+
+@media only screen and (max-width: 600px) {
+    .feed_container .menu_feed{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .feed_container, .feed_container .main_feed{
+        margin: 0;
+        padding: 0;
+    }
+}
+

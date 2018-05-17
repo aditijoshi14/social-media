@@ -1,0 +1,34 @@
+@import '../../../global/style/_colors.scss';
+.post{
+    border: 1px solid $border-color;
+    display: flex;
+    justify-content: center;
+
+    .post_photo{
+        padding: 10px;
+        img{
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        } 
+    }
+
+    .post_main{
+        flex-grow: 1;
+        padding: 10px;
+
+        .post_main_info{
+            color: $post-text-color-secondary;
+        }
+
+        .post_main_info span{
+            font-weight: bold;
+            color: $post-text-color-primary
+        }
+
+        .post_main_content{
+            margin-top: 5px;
+            color: $post-text-color-primary
+        }
+    }
+}

@@ -7,13 +7,17 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { FeedComponent } from './components/feed/feed.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     NavBarComponent,
-    SignUpComponent
+    SignUpComponent,
+    FeedComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
