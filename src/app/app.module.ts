@@ -1,7 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+// Import Services
+import {StateService} from './services/state.service'
+
+// Import Components
 import { AppComponent } from './app.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -28,9 +33,12 @@ import { FeedPageComponent } from './views/feed-page/feed-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     AngularFontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    StateService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

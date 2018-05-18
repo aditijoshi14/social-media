@@ -1,13 +1,16 @@
 <div class="sign-in-card">
   <img src="/assets/images/logo.png">
   <h1>SIGN IN</h1>
-  <form method="post" role="form">
+  <form method="post" role="form" #signInForm="ngForm" (ngSubmit) = "logIn()">
+    <div class = "error-message" *ngIf = "signInForm.submitted">
+      {{errorMessage}}
+    </div>
     <div class="input-with-icon">
-      <input type="text" name="username" id="username" placeholder="Username">
+      <input type="text" name="username" id="username" placeholder="Username" [(ngModel)]="user.username">
       <fa name="user"></fa>
     </div>
     <div class="input-with-icon">
-      <input type="password" name="password" id="password" tabindex="2" placeholder="Password">
+      <input type="password" name="password" id="password" placeholder="Password" [(ngModel)]="user.password">
       <fa name="key"></fa>
     </div>
     <div>
@@ -22,6 +25,6 @@
     <p>Forgot Password?</p>
   </div>
   <div>
-    <p>Not yet a member? Sign up here!</p>
+    <p>Not yet a member? <span (click) = "stateService.go('/register')">Sign up here!</span></p>
   </div>
 </div>

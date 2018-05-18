@@ -1,28 +1,33 @@
 <div class="sign-up-card">
-    <img src="/assets/images/logo.png">
-    <h1>SIGN UP</h1>
-    <form method="post" role="form">
-      <div class="input-with-icon">
-        <input type="email" name="email" id="email" placeholder="Email Address">
-        <fa name="envelope"></fa>
-      </div>
-      <div class="input-with-icon">
-          <input type="text" name="username" id="username" placeholder="Username">
-          <fa name="user"></fa>
-        </div>
-      <div class="input-with-icon">
-        <input type="password" name="password" id="password" tabindex="2" placeholder="Password">
-        <fa name="key"></fa>
-      </div>
-      <div class="input-with-icon">
-          <input type="password" name="confirm-password" id="confirm-password" tabindex="2" placeholder="Confirm Password">
-          <fa name="key"></fa>
-        </div>
-      <div>
-        <input type="submit" value="Sign Up">
-      </div>
-    </form>
-    <div>
-      <p>Already a member? Sign in here!</p>
+  <img src="/assets/images/logo.png">
+  <h1>SIGN UP</h1>
+  <form method="post" role="form" (ngSubmit) = "register()" #signUpForm="ngForm">
+    <div class = "error-message" *ngIf="signUpForm.submitted && hasError()">
+      {{errorMessage}}
     </div>
+    <div class="input-with-icon">
+      <input type="email" name="email" id="email" placeholder="Email Address" [(ngModel)]="user.email">
+      <fa name="envelope"></fa>
+    </div>
+    <div class="input-with-icon">
+      <input type="text" name="username" id="username" placeholder="Username" [(ngModel)]="user.username">
+      <fa name="user"></fa>
+    </div>
+    <div class="input-with-icon">
+      <input type="password" name="password" id="password" placeholder="Password" [(ngModel)]="user.password">
+      <fa name="key"></fa>
+    </div>
+    <div class="input-with-icon">
+      <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" [(ngModel)]="user.confirmPassword">
+      <fa name="key"></fa>
+    </div>
+    <div>
+      <input type="submit" value="Sign Up">
+    </div>
+  </form>
+  <div>
+    <p>Already a member?
+      <span (click)="stateService.go('/')">Sign in here!</span>
+    </p>
   </div>
+</div>

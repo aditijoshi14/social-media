@@ -1,7 +1,11 @@
 @import '../../../global/style/_mixins.scss';
 
 .sign-up-card{
-    @include style-card-sign
+    @include style-card-sign;
+
+    .error-message{
+        @include style-card-sign-error-message;
+    }
 }
 
 @media only screen and (max-width: 420px) {
@@ -9,3 +13,4 @@
         @include style-card-sign-mobile;
     }
 }
+

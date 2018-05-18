@@ -46,3 +46,10 @@
     overflow: scroll;
     padding-top: 10px;
 }
+
+@mixin style-card-sign-error-message{
+    text-align: left;
+    color: #ffffff;
+    text-shadow: 0 0 3px #FF0000;
+    padding-bottom: 5px;
+}

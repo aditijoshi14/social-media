@@ -2,14 +2,18 @@
 @import '../../../global/style/_mixins.scss';
 
 .sign-in-card{
-    @include style-card-sign
-}
+    @include style-card-sign;
 
-.remember-me{
-    line-height: 1.2;
-    display: flex;
-    justify-content: flex-start;
-    cursor: pointer;
+    .remember-me{
+        line-height: 1.2;
+        display: flex;
+        justify-content: flex-start;
+        cursor: pointer;
+    }
+
+    .error-message{
+        @include style-card-sign-error-message;
+    }
 }
 
 @media only screen and (max-width: 420px) {
@@ -17,3 +21,4 @@
         @include style-card-sign-mobile;
     }
 }
+
