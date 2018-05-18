@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class StateService{
     constructor(private route: Router, 
         private activatedRouter: ActivatedRoute){
-
     }
 
     go(stateName): void{

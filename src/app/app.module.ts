@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 // Import Services
 import {StateService} from './services/state.service'
 
@@ -17,6 +17,7 @@ import { PostComponent } from './components/post/post.component';
 import { SignInPageComponent } from './views/sign-in-page/sign-in-page.component';
 import { SignUpPageComponent } from './views/sign-up-page/sign-up-page.component';
 import { FeedPageComponent } from './views/feed-page/feed-page.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -28,16 +29,18 @@ import { FeedPageComponent } from './views/feed-page/feed-page.component';
     PostComponent,
     SignInPageComponent,
     SignUpPageComponent,
-    FeedPageComponent
+    FeedPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpClientModule
   ],
   providers: [
-    StateService
+    StateService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
