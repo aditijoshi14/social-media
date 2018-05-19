@@ -8,25 +8,33 @@ import * as _ from 'lodash';
 @Injectable()
 export class AuthService {
     errorMessage: string;
+    hasError: boolean;
     constructor(private httpClient: HttpClient,
         private stateService: StateService) {
+            this.hasError = false;
     }
 
-    signIn(user): void {
-        console.log("here");
+    hasErrorRegister(user): boolean {
         if (_.isEmpty(user.fullName)) {
-          this.errorMessage = "Please enter your full name";
+        this.errorMessage = "Please enter your full name";
         } else if (_.isEmpty(user.email)) {
-          this.errorMessage = "Please enter your email address";
+        this.errorMessage = "Please enter your email address";
         } else if (_.isEmpty(user.username)) {
-          this.errorMessage = "Please enter a username";
-        } else if (user.username.length < 8) {
-          this.errorMessage = "Your username must be at least 8 character";
+        this.errorMessage = "Please enter a username";
+        } else if (user.username.length < 6) {
+        this.errorMessage = "Your username must be at least 6 characters";
         } else if (_.isEmpty(user.password)) {
-          this.errorMessage = "Please enter a password";
+        this.errorMessage = "Please enter a password";
         } else if (user.password.length < 8) {
-          this.errorMessage = "Your password must be at least 8 character";
+        this.errorMessage = "Your password must be at least 8 characters";
         } else {
+        return false;
+        }
+        return true;
+    }
+
+    signUp(user): void {
+        if(!this.hasErrorRegister(user)){
           this.emailRegistered(user);
         }
       }
@@ -37,11 +45,13 @@ export class AuthService {
                 if(_.isEmpty(data)){
                     this.usernameRegistered(userInfo);
                 }else{
+                    this.hasError = true;
                     this.errorMessage = "Account is already created using this email."
                 }
             },
             err => {
-                console.log("Error Occured");
+                this.hasError = true;
+                this.errorMessage = ("Error Occured! Please try again later");
             }
             
         )
@@ -53,11 +63,14 @@ export class AuthService {
                 if(_.isEmpty(data)){
                     this.register(userInfo);
                 }else{
-                    this.errorMessage = "Account is already created using this email."
+                    this.hasError = true;
+                    this.errorMessage = "This username has already been taken."
+                    
                 }
             },
             err => {
-                console.log("Error Occured");
+                this.hasError = true;
+                this.errorMessage = ("Error Occured! Please try again later");
             }
             
         )
@@ -68,11 +81,11 @@ export class AuthService {
             post(`${Constants.BASE_URL}/members_info`, userInfo).
             subscribe(
                 data => {
-                    console.log(data); 
                     this.stateService.go("feed");
                 },
                 err => {
-                    console.log("Error Occured");
+                    this.hasError = true;
+                    this.errorMessage = ("Error Occured! Please try again later");
                     
                 }
             );

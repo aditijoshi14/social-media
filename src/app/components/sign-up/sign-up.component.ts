@@ -10,29 +10,14 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SignUpComponent implements OnInit {
   private user: any;
-  private errorMessage: string;
   constructor(private stateService: StateService,
     private authService: AuthService) {}
 
   ngOnInit() {
     this.user = {};
-    this.errorMessage = this.authService.errorMessage;
   }
 
   register(): void {
-      this.authService.signIn(this.user);
+    this.authService.signUp(this.user);  
   }
-
-  // validInput(): boolean {
-  //   if (_.isEmpty(this.user.fullName) ||
-  //     _.isEmpty(this.user.email) ||
-  //     _.isEmpty(this.user.username) ||
-  //     _.isEmpty(this.user.password) ||
-  //     this.user.username.length < 8 ||
-  //     this.user.password.length < 8) {
-  //     return false;
-  //   } else {
-  //     return true;
-  //   }
-  // }
 }

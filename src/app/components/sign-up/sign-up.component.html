@@ -2,8 +2,8 @@
   <img src="/assets/images/logo.png">
   <h1>SIGN UP</h1>
   <form method="post" role="form" (ngSubmit) = "register()" #signUpForm="ngForm">
-    <div class = "error-message">
-      {{errorMessage}}
+    <div class = "error-message" *ngIf="(signUpForm.submitted && authService.hasErrorRegister(user)) || authService.hasError">
+      {{authService.errorMessage}}
     </div>
     <div class="input-with-icon">
       <input type="text" name="full-name" id="full-name" placeholder="Full Name" [(ngModel)]="user.fullName">

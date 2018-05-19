@@ -13,62 +13,6 @@
       "email": "john@dickinson.edu",
       "username": "smithjohn",
       "password": "asdf1234"
-    },
-    {
-      "fullName": "Angel Shiwakoti",
-      "email": "shiwakoti.angel@gmail.com",
-      "username": "shiwakoa",
-      "password": "asdf1234",
-      "id": 3
-    },
-    {
-      "fullName": "John Doe",
-      "email": "john@gmail.com",
-      "username": "johndoe1",
-      "password": "Asdfg1234",
-      "id": 4
-    },
-    {
-      "fullName": "angel",
-      "email": "ang_bnks@yahoo.com",
-      "username": "angelshiwa",
-      "password": "asdfghjkred",
-      "id": 5
-    },
-    {
-      "fullName": "Aditi Joshi",
-      "email": "joshi@gmail.com",
-      "username": "joshiaditi",
-      "password": "asdf12345",
-      "id": 6
-    },
-    {
-      "fullName": "Aditi Joshi",
-      "email": "joshiad@dickinson.edu",
-      "username": "adadafafa",
-      "password": "fafafafafaf",
-      "id": 7
-    },
-    {
-      "fullName": "Aditi Joshi",
-      "email": "aditij@gmail.com",
-      "username": "aditijs1",
-      "password": "akhfkjahfkshgks",
-      "id": 8
-    },
-    {
-      "fullName": "Aditi Joshi",
-      "email": "joshiad@yahoo.com",
-      "username": "joshiaditi1",
-      "password": "gsgsgsgsgs",
-      "id": 9
-    },
-    {
-      "fullName": "Aditi Joshi",
-      "email": "j@gmail.com",
-      "username": "jhorstoe",
-      "password": "fsgsgsgsggdgd",
-      "id": 10
     }
   ]
 }
