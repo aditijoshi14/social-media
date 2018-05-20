@@ -90,4 +90,20 @@ export class AuthService {
                 }
             );
     }
+
+    signIn(userInfo): void{
+        this.httpClient.get(`${Constants.BASE_URL}/members_info?username=${userInfo.username}&password=${userInfo.password}`).
+        subscribe(
+            data => {
+                if(_.isEmpty(data)){
+                    this.errorMessage = ("Your username and password doesn't match.");
+                }else{
+                    this.stateService.go("feed");
+                }
+            },
+            err => {
+                this.errorMessage = ("Error Occured! Please try again later");
+            }
+        )
+    }
 }

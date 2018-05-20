@@ -3,7 +3,7 @@
   <h1>SIGN IN</h1>
   <form method="post" role="form" #signInForm="ngForm" (ngSubmit) = "logIn()">
     <div class = "error-message" *ngIf = "signInForm.submitted">
-      {{errorMessage}}
+      {{authService.errorMessage}}
     </div>
     <div class="input-with-icon">
       <input type="text" name="username" id="username" placeholder="Username" [(ngModel)]="user.username">
