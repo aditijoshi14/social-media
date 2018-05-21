@@ -13,6 +13,42 @@
       "email": "john@dickinson.edu",
       "username": "smithjohn",
       "password": "asdf1234"
+    },
+    {
+      "fullName": "John Doe",
+      "email": "doejohn@gmail.com",
+      "username": "doejohn",
+      "password": "asdf1234",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "fullName": "Aditi Joshi",
+      "email": "joshiad@dickinson.edu",
+      "username": "1",
+      "password": "1"
+    }
+  ],
+  "post": [
+    {
+      "id": 1,
+      "postContributerId": "1joshiad",
+      "postContent": "Post 1"
+    },
+    {
+      "id": 2,
+      "postContributerId": "1joshiad",
+      "postContent": "Post 2"
+    },
+    {
+      "id": 3,
+      "postContributerId": "2smithjohn",
+      "postContent": "Post 3"
+    },
+    {
+      "id": 4,
+      "postContributerId": "1joshiad",
+      "postContent": "Post 4"
     }
   ]
 }

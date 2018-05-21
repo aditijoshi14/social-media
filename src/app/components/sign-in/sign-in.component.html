@@ -1,16 +1,18 @@
 <div class="sign-in-card">
   <img src="/assets/images/logo.png">
   <h1>SIGN IN</h1>
-  <form method="post" role="form" #signInForm="ngForm" (ngSubmit) = "logIn()">
-    <div class = "error-message" *ngIf = "signInForm.submitted">
+  <form method="post" role="form" #signInForm="ngForm" (ngSubmit)="logIn()">
+    <div class="error-message" *ngIf="signInForm.submitted">
       {{authService.errorMessage}}
     </div>
-    <div class="input-with-icon">
-      <input type="text" name="username" id="username" placeholder="Username" [(ngModel)]="user.username">
+    <div class="input-with-icon" >
+      <input type="text" name="username" id="username" placeholder="Username" [(ngModel)]="user.username"
+      [ngStyle] = "rememberMeStyle()">
       <fa name="user"></fa>
     </div>
     <div class="input-with-icon">
-      <input type="password" name="password" id="password" placeholder="Password" [(ngModel)]="user.password">
+      <input type="password" name="password" id="password" placeholder="Password" [(ngModel)]="user.password"
+      [ngStyle] = "rememberMeStyle()">
       <fa name="key"></fa>
     </div>
     <div>
@@ -19,12 +21,14 @@
   </form>
   <div>
     <label class="remember-me">
-      <input type="checkbox" />
+      <input type="checkbox" [(ngModel)]="authService.isRememberEnabled" />
       <span>Remember Me</span>
     </label>
     <p>Forgot Password?</p>
   </div>
   <div>
-    <p>Not yet a member? <span (click) = "stateService.go('/register')">Sign up here!</span></p>
+    <p>Not yet a member?
+      <span (click)="stateService.go('/register')">Sign up here!</span>
+    </p>
   </div>
 </div>

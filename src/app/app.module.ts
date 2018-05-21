@@ -3,8 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LocalStorageModule } from 'angular-2-local-storage';
+import { CookieModule } from 'ngx-cookie';
+
 // Import Services
-import {StateService} from './services/state.service'
+import { StateService } from './services/state.service'
+import { AuthService } from './services/auth.service';
+import { PostService } from './services/post.service';
 
 // Import Components
 import { AppComponent } from './app.component';
@@ -17,7 +22,8 @@ import { PostComponent } from './components/post/post.component';
 import { SignInPageComponent } from './views/sign-in-page/sign-in-page.component';
 import { SignUpPageComponent } from './views/sign-up-page/sign-up-page.component';
 import { FeedPageComponent } from './views/feed-page/feed-page.component';
-import { AuthService } from './services/auth.service';
+
+
 
 @NgModule({
   declarations: [
@@ -36,11 +42,18 @@ import { AuthService } from './services/auth.service';
     AppRoutingModule,
     FormsModule,
     AngularFontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    LocalStorageModule.withConfig({
+      prefix: 'social-media',
+      storageType: 'localStorage'
+    }),
+    CookieModule.forRoot()
+
   ],
   providers: [
     StateService,
-    AuthService
+    AuthService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })

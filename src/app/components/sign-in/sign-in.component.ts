@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StateService } from '../../services/state.service';
 import { AuthService } from '../../services/auth.service';
+import { CookieService } from 'ngx-cookie';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,14 +12,30 @@ import { AuthService } from '../../services/auth.service';
 export class SignInComponent implements OnInit {
   private user: any;
   private errorMessage: String;
+  private isRememberEnabled: boolean;
   constructor(private stateService: StateService,
-    private authService: AuthService) { }
-
-  ngOnInit() {
+    private authService: AuthService,
+    private cookie: CookieService
+  ) {
     this.user = {};
+    if (!_.isUndefined(this.cookie.get('credential'))) {
+      var temp: any = JSON.parse(this.cookie.get('credential'));
+      this.user.username = temp['username'];
+      this.user.password = atob(temp['password']);
+      this.authService.isRememberEnabled = true;
+      this.isRememberEnabled = true;
+    }
   }
 
-  logIn(): void{
+  ngOnInit() {
+
+  }
+
+  logIn(): void {
     this.authService.signIn(this.user);
+  }
+
+  rememberMeStyle(){
+    return {'background-color': this.isRememberEnabled?'#FAFFBD':''};
   }
 }

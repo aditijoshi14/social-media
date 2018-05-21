@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-feed',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
-
-  constructor() { }
+  private user: any;
+  constructor(private postService: PostService,
+  ) {
+    postService.loadFeedPosts()
+    
+  }
 
   ngOnInit() {
   }
