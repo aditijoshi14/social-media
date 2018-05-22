@@ -13,8 +13,8 @@
           <button (click)="postService.post(postService.postInput)">Post</button>
         </div>
       </div>
-      <div class="main_feed_post">
-        <!-- <app-post></app-post> -->
+      <div *ngFor="let post of postService.feedPosts" class="main_feed_post">
+        <app-post [post]="post"></app-post>
       </div>
     </div>
   </div>

@@ -8,29 +8,44 @@ import { MomentModule } from 'ngx-moment';
 
 @Injectable()
 
-export class PostService{
+export class PostService {
     private info: any;
     private postInput: string;
     private inputCharacters: number;
     private profilePosts: Array<Post>;
     private profilePostLength: number;
+    private feedPosts: Array<Post>;
     private currentDate: Date;
+    private followingList: String;
 
     constructor(private httpClient: HttpClient,
         private storage: LocalStorageService,
         private stateService: StateService) {
         this.info = this.storage.get('userInfo');
-        console.log("here" + this.info.id + this.info.username);
         this.postInput = "";
         this.inputCharacters = 300;
         this.currentDate = new Date();
+        this.followingList = new String("");
     }
 
-    loadFeedPosts() {
-        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${this.info.id}${this.info.username}`).
+    loadFeedFollowing() {
+        this.httpClient.get(`${Constants.BASE_URL}/members_info?username=${this.info.username}`).
             subscribe(
-                data => {
-
+                (data: any) => {
+                    for (let userId of data[0].following){
+                        this.followingList = `${this.followingList}&postContributerId=${userId}`;
+                    }
+                    this.loadFeedPosts();
+                }, err => { }
+            )
+    }
+    loadFeedPosts() {
+        console.log(`${Constants.BASE_URL}/posts?postContributerId=${this.info.id}${this.info.username}${this.followingList}`);
+        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${this.info.id}${this.info.username}${this.followingList}`).
+            subscribe(
+                (data: any) => {
+                    this.feedPosts = data;
+                    this.feedPosts.reverse();
                 },
                 err => { }
             );
@@ -72,7 +87,7 @@ export class PostService{
                 this.profilePosts.reverse();
                 this.profilePostLength = data.length;
             },
-            err => {}
+            err => { }
         )
     }
 }
