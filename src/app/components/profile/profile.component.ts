@@ -3,6 +3,7 @@ import { LocalStorageService } from 'angular-2-local-storage';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../../app.constant';
 import { Post } from '../../app.interface';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,21 +17,13 @@ export class ProfileComponent implements OnInit {
   private posts: Post;
 
   constructor(private storage: LocalStorageService,
-    private httpClient: HttpClient) {
+    private httpClient: HttpClient,
+    private postService: PostService) {
     let userInfo: any = storage.get('userInfo');
     this.fullName = userInfo.fullName;
     this.username = userInfo.username;
     this.id = userInfo.id;
-    this.getPost();
-  }
-
-  getPost() {
-    this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${this.id}${this.username}`).subscribe(
-      (data: any) => {
-        this.posts = data;
-      },
-      err => { }
-    )
+    this.postService.getProfilePost();
   }
 
   ngOnInit() {

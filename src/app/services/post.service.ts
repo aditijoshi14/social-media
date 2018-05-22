@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Constants } from '../app.constant'
 import { LocalStorageService } from 'angular-2-local-storage';
 import { StateService } from './state.service';
+import { Post } from '../app.interface';
+import { MomentModule } from 'ngx-moment';
 
 @Injectable()
 
@@ -10,12 +12,17 @@ export class PostService {
     private info: any;
     private postInput: string;
     private inputCharacters: number;
+    private profilePosts: Array<Post>;
+    private profilePostLength: number;
+    private currentDate: Date;
+
     constructor(private httpClient: HttpClient,
         private storage: LocalStorageService,
         private stateService: StateService) {
         this.info = this.storage.get('userInfo');
         this.postInput = "";
         this.inputCharacters = 300;
+        this.currentDate = new Date();
     }
 
     loadFeedPosts() {
@@ -33,7 +40,8 @@ export class PostService {
         post.postContributerId = `${this.info.id}${this.info.username}`;
         post.postContent = content;
         post.numVotes = 0;
-        post.fullName = this.info.fullName;
+        post.postContributerFullName = this.info.fullName;
+        post.timePosted = new Date();
 
         this.httpClient.post(`${Constants.BASE_URL}/posts`, post).subscribe(
             data => {
@@ -54,5 +62,16 @@ export class PostService {
         } else {
             return false;
         }
+    }
+
+    getProfilePost() {
+        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${this.info.id}${this.info.username}`).subscribe(
+            (data: any) => {
+                this.profilePosts = data;
+                this.profilePosts.reverse();
+                this.profilePostLength = data.length;
+            },
+            err => {}
+        )
     }
 }

@@ -12,7 +12,7 @@
         <div class="user_info_stats">
           <div>Posts
             <br>
-            <span>1</span>
+            <span>{{postService.profilePostLength}}</span>
           </div>
           <div>Followers
             <br>
@@ -27,7 +27,7 @@
     </div>
     <div class="user_post_profile box-shadow">
       <h1>Posts</h1>
-      <div *ngFor="let post of posts" class="user_post_profile_container">
+      <div *ngFor="let post of postService.profilePosts" class="user_post_profile_container">
         <app-post [post]="post"></app-post>
       </div>
     </div>

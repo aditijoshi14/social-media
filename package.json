@@ -23,11 +23,13 @@
     "angular-2-local-storage": "^2.0.0",
     "angular-font-awesome": "^3.1.2",
     "angular2-autosize": "^1.0.2",
+    "angular2-moment": "^1.9.0",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "lodash": "^4.17.10",
     "ngx-cookie": "^3.0.1",
+    "ngx-moment": "^2.0.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { CookieModule } from 'ngx-cookie';
+import { MomentModule } from 'ngx-moment';
 
 // Import Services
 import { StateService } from './services/state.service'
@@ -52,8 +53,7 @@ import { ProfilePageComponent } from './views/profile-page/profile-page.componen
       storageType: 'localStorage'
     }),
     CookieModule.forRoot(),
-    
-
+    MomentModule
   ],
   providers: [
     StateService,

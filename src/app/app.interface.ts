@@ -3,4 +3,6 @@ export interface Post{
     postContent: string;
     numVotes: number;
     postContributerFullName: string;
+    postContributerId: string;
+    timePosted: Date;
 }
