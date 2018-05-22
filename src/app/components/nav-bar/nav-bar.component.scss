@@ -7,6 +7,10 @@
     justify-content: center;
     box-shadow: 0 5px 15px 0 rgba(46, 61, 73, 0.15);
 
+    &.increasedDivHeight{
+        height: 200px;
+    }
+
     .nav-bar-container{
         max-width: 1012px;
         height: 70px;

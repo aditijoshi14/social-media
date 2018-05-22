@@ -4,10 +4,15 @@
   </div>
   <div class="post_main">
     <div class="post_main_info">
-      <span>{{post_name}}</span> . {{post_time}}
+      <span>{{post.fullName}}</span> . {{post_time}}
     </div>
     <div class="post_main_content">
-      {{post_content}}
+      {{post.postContent}}
     </div>
   </div>
+  <div class="vote">
+      <fa name ="angle-up"></fa>
+      {{post.numVotes}}
+      <fa name ="angle-down"></fa>
+    </div>
 </div>

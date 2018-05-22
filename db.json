@@ -29,26 +29,55 @@
       "password": "1"
     }
   ],
-  "post": [
+  "posts": [
     {
       "id": 1,
       "postContributerId": "1joshiad",
-      "postContent": "Post 1"
+      "postContent": "Post 1",
+      "numVotes": 3,
+      "fullName": "Aditi Joshi"
     },
     {
       "id": 2,
       "postContributerId": "1joshiad",
-      "postContent": "Post 2"
+      "postContent": "Post 2",
+      "numVotes": 4,
+      "fullName": "Aditi Joshi"
     },
     {
       "id": 3,
       "postContributerId": "2smithjohn",
-      "postContent": "Post 3"
+      "postContent": "Post 3",
+      "numVotes": 5,
+      "fullName": "John Smith"
     },
     {
       "id": 4,
       "postContributerId": "1joshiad",
-      "postContent": "Post 4"
+      "postContent": "Post 4",
+      "numVotes": 0,
+      "fullName": "Aditi Joshi"
+    },
+    {
+      "postContributerId": "1joshiad",
+      "postContent": "Post 5",
+      "numVotes": 0,
+      "fullName": "Aditi Joshi",
+      "id": 5
+    },
+    {
+      "postContributerId": "1joshiad",
+      "postContent": "Post 6",
+      "numVotes": 0,
+      "fullName": "Aditi Joshi",
+      "id": 6
+    },
+    {
+      "postContributerId": "1joshiad",
+      "postContent": "Post 7",
+      "numVotes": 0,
+      "fullName": "Aditi Joshi",
+      "id": 7
     }
   ]
 }

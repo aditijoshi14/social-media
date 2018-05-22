@@ -14,6 +14,10 @@
     .error-message{
         @include style-card-sign-error-message;
     }
+
+    .filled-input{
+        background-color: #FAFFBD;
+    }
 }
 
 @media only screen and (max-width: 420px) {

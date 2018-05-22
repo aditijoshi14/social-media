@@ -22,6 +22,8 @@ import { PostComponent } from './components/post/post.component';
 import { SignInPageComponent } from './views/sign-in-page/sign-in-page.component';
 import { SignUpPageComponent } from './views/sign-up-page/sign-up-page.component';
 import { FeedPageComponent } from './views/feed-page/feed-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ProfilePageComponent } from './views/profile-page/profile-page.component';
 
 
 
@@ -36,6 +38,8 @@ import { FeedPageComponent } from './views/feed-page/feed-page.component';
     SignInPageComponent,
     SignUpPageComponent,
     FeedPageComponent,
+    ProfileComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,8 @@ import { FeedPageComponent } from './views/feed-page/feed-page.component';
       prefix: 'social-media',
       storageType: 'localStorage'
     }),
-    CookieModule.forRoot()
+    CookieModule.forRoot(),
+    
 
   ],
   providers: [

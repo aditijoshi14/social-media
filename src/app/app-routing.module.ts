@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SignInPageComponent } from './views/sign-in-page/sign-in-page.component';
 import { SignUpPageComponent } from './views/sign-up-page/sign-up-page.component';
 import { FeedPageComponent } from './views/feed-page/feed-page.component';
+import { ProfilePageComponent } from './views/profile-page/profile-page.component';
 
 const signInState = {
   path: '', 
@@ -19,10 +20,16 @@ const feedState = {
   component: FeedPageComponent
 }
 
+const profileState = {
+  path: 'profile', 
+  component: ProfilePageComponent
+}
+
 const routes: Routes = [
   signInState,
   signUpState,
-  feedState
+  feedState,
+  profileState
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
-<div class="nav-bar">
+<div class="nav-bar" [ngClass] = "{'increasedDivHeight': isProfileState}">
   <div class="nav-bar-container">
-    <img class = "logo" src="/assets/images/logo.png">
+    <img class = "logo" src="/assets/images/logo.png" (click) = "viewFeed()">
     <form class = "search-bar">
       <div class="input-with-icon">
       <input type="text" placeholder="Search" name="search">
@@ -10,7 +10,7 @@
     <div class = "nav-menu">
       <fa name = "comment"></fa>
       <fa name = "bell"></fa>
-      <fa name = "user"></fa>
+      <fa name = "user" (click) = "viewProfile()"></fa>
       <fa name = "power-off" (click)="logOut()"></fa>
     </div>
   </div>

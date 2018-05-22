@@ -1,0 +1,35 @@
+<div class="profile">
+  <div class="profile_container">
+    <div class="user_info_profile box-shadow">
+      <div class="user_info_profile_container">
+        <img src="../../../assets/images/profile.jpg">
+        <div class="user_info_name">
+          <div class="user_info_name_container">
+            <h1>{{fullName}} </h1>
+            <h3>@{{username}}</h3>
+          </div>
+        </div>
+        <div class="user_info_stats">
+          <div>Posts
+            <br>
+            <span>1</span>
+          </div>
+          <div>Followers
+            <br>
+            <span>5</span>
+          </div>
+          <div>Followings
+            <br>
+            <span>6</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="user_post_profile box-shadow">
+      <h1>Posts</h1>
+      <div *ngFor="let post of posts" class="user_post_profile_container">
+        <app-post [post]="post"></app-post>
+      </div>
+    </div>
+  </div>
+</div>

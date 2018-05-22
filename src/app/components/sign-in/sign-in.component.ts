@@ -18,6 +18,7 @@ export class SignInComponent implements OnInit {
     private cookie: CookieService
   ) {
     this.user = {};
+    // Checking if the user selected remember me previously or not
     if (!_.isUndefined(this.cookie.get('credential'))) {
       var temp: any = JSON.parse(this.cookie.get('credential'));
       this.user.username = temp['username'];
@@ -33,9 +34,5 @@ export class SignInComponent implements OnInit {
 
   logIn(): void {
     this.authService.signIn(this.user);
-  }
-
-  rememberMeStyle(){
-    return {'background-color': this.isRememberEnabled?'#FAFFBD':''};
   }
 }

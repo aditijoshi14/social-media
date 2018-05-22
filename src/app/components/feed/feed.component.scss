@@ -1,18 +1,13 @@
 @import '../../../global/style/_colors.scss';
 @import '../../../global/style/_fonts.scss';
+@import '../../../global/style/_mixins.scss';
 
 .feed{
-    background: $background-color;
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
+   @include container;
 }
 
 .feed_container{
-    max-width: 1012px;
-    width:100%;
-    margin: 0 40px;
+    @include content-container;
     display: flex;
     justify-content: center;
     
@@ -41,13 +36,47 @@
         background: $container-color;
 
         .feed_box{
-            border: 0px;
-            padding: 15px;
-            font-size: 20px;
-            text-align: left;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-            box-sizing: border-box;
-            border: 1px solid $border-color;
+            display: flex;
+            flex-direction: column;
+            textarea{
+                border: 0px;
+                padding: 15px;
+                text-align: left;
+                font-size: 20px;
+                display:table-cell;
+                resize: none;
+            }
+            textarea:focus{
+                outline: none;
+            }
+
+            .postEnabled{
+                margin-left: auto;
+                color: $primary-color-1;
+
+                button{
+                    font-size: 18px;
+                    width: 60px;
+                    margin: 10px;
+                    color: $primary-color-1;
+                    background: none;
+                    font-weight: 600;
+                    padding: 3px; 
+                    border-radius: 100px;
+                    border: 1px solid $primary-color-1;
+                }
+
+                button:hover, button:active{
+                    outline: none;
+                    background: $primary-color-1;
+                    color: $text-color;
+                }
+                
+                button:focus{
+                    outline: none;
+                }
+            }
+            
         }
 
         .main_feed_post{
