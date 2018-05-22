@@ -18,6 +18,8 @@ export class SignUpComponent implements OnInit {
   }
 
   register(): void {
+    this.user.following = [];
+    this.user.follower = [];
     this.authService.signUp(this.user);  
   }
 }

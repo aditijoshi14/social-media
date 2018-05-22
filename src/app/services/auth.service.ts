@@ -106,7 +106,9 @@ export class AuthService {
                     userInfo.fullName = data.fullName;
                     this.storage.set('userInfo', userInfo);
                     this.stateService.go("feed");
-
+                    // Added userId in the server
+                    data.userId = `${data.id}${data.username}`
+                    this.httpClient.patch(`${Constants.BASE_URL}/members_info/${data.id}`, data).subscribe();
                 },
                 err => {
                     this.hasError = true;

@@ -1,32 +1,41 @@
 {
   "members_info": [
     {
-      "id": 1,
       "fullName": "Aditi Joshi",
       "email": "joshiad@dickinson.edu",
       "username": "joshiad",
-      "password": "asdf1234"
+      "password": "asdf1234",
+      "following": [
+        "2smithjohn",
+        "3doejohn"
+      ],
+      "follower": [],
+      "id": 1,
+      "userId": "1joshiad"
     },
     {
-      "id": 2,
       "fullName": "John Smith",
       "email": "john@dickinson.edu",
       "username": "smithjohn",
-      "password": "asdf1234"
+      "password": "asdf1234",
+      "following": [],
+      "follower": [
+        "1joshiad"
+      ],
+      "id": 2,
+      "userId": "2smithjohn"
     },
     {
       "fullName": "John Doe",
       "email": "doejohn@gmail.com",
       "username": "doejohn",
       "password": "asdf1234",
-      "id": 3
-    },
-    {
-      "id": 4,
-      "fullName": "Aditi Joshi",
-      "email": "joshiad@dickinson.edu",
-      "username": "1",
-      "password": "1"
+      "following": [],
+      "follower": [
+        "1joshiad"
+      ],
+      "id": 3,
+      "userId": "3doejohn"
     }
   ],
   "posts": [
@@ -61,6 +70,30 @@
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-22T06:24:10.846Z",
       "id": 4
+    },
+    {
+      "postContributerId": "2smithjohn",
+      "postContent": "Post 5",
+      "numVotes": 0,
+      "postContributerFullName": "John Smith",
+      "timePosted": "2018-05-22T18:30:05.086Z",
+      "id": 5
+    },
+    {
+      "postContributerId": "2smithjohn",
+      "postContent": "Post 6",
+      "numVotes": 0,
+      "postContributerFullName": "John Smith",
+      "timePosted": "2018-05-22T18:30:16.392Z",
+      "id": 6
+    },
+    {
+      "postContributerId": "1joshiad",
+      "postContent": "Post 7",
+      "numVotes": 0,
+      "postContributerFullName": "Aditi Joshi",
+      "timePosted": "2018-05-22T19:04:53.693Z",
+      "id": 7
     }
   ]
 }
