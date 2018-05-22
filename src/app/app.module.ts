@@ -25,6 +25,7 @@ import { SignUpPageComponent } from './views/sign-up-page/sign-up-page.component
 import { FeedPageComponent } from './views/feed-page/feed-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfilePageComponent } from './views/profile-page/profile-page.component';
+import { UserService } from './services/user.service';
 
 
 
@@ -58,7 +59,8 @@ import { ProfilePageComponent } from './views/profile-page/profile-page.componen
   providers: [
     StateService,
     AuthService,
-    PostService
+    PostService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
 @import '/global/style/_fonts.scss';
 @import '/global/style/_colors.scss';
 
-body{
+body, pre{
     margin: 0;
     @include main-font;
 }

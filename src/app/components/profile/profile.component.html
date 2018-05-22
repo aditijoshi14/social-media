@@ -5,8 +5,8 @@
         <img src="../../../assets/images/profile.jpg">
         <div class="user_info_name">
           <div class="user_info_name_container">
-            <h1>{{fullName}} </h1>
-            <h3>@{{username}}</h3>
+            <h1>{{userService.userFullInfo.fullName}} </h1>
+            <h3>@{{userService.userFullInfo.username}}</h3>
           </div>
         </div>
         <div class="user_info_stats">
@@ -16,11 +16,11 @@
           </div>
           <div>Followers
             <br>
-            <span>5</span>
+            <span>{{userService.userFullInfo.followersLength}}</span>
           </div>
-          <div>Followings
+          <div>Following
             <br>
-            <span>6</span>
+            <span>{{userService.userFullInfo.followingLength}}</span>
           </div>
         </div>
       </div>
