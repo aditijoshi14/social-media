@@ -53,6 +53,14 @@
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-22T06:19:49.367Z",
       "id": 3
+    },
+    {
+      "postContributerId": "1joshiad",
+      "postContent": "Post 4",
+      "numVotes": 0,
+      "postContributerFullName": "Aditi Joshi",
+      "timePosted": "2018-05-22T06:24:10.846Z",
+      "id": 4
     }
   ]
 }

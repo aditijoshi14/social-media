@@ -21,7 +21,6 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {
     this.post_image_src = "../../../assets/images/profile.jpg"
-   // console.log(this.post.fullName);
   }
 
 }

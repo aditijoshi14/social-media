@@ -44,7 +44,7 @@ import { ProfilePageComponent } from './views/profile-page/profile-page.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule ,
     FormsModule,
     AngularFontAwesomeModule,
     HttpClientModule,

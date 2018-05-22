@@ -32,6 +32,7 @@ export class NavBarComponent implements OnInit {
   logOut(): void {
     this.storage.remove('userInfo');
     this.stateService.go('/');
+    window.location.reload();
   }
 
   viewProfile(): void {

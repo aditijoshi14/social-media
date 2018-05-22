@@ -8,7 +8,7 @@ import { MomentModule } from 'ngx-moment';
 
 @Injectable()
 
-export class PostService {
+export class PostService{
     private info: any;
     private postInput: string;
     private inputCharacters: number;
@@ -20,6 +20,7 @@ export class PostService {
         private storage: LocalStorageService,
         private stateService: StateService) {
         this.info = this.storage.get('userInfo');
+        console.log("here" + this.info.id + this.info.username);
         this.postInput = "";
         this.inputCharacters = 300;
         this.currentDate = new Date();
