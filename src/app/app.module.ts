@@ -30,7 +30,9 @@ import { FollowingComponent } from './components/profile-card/following/followin
 import { FollowersComponent } from './components/profile-card/followers/followers.component';
 import { PostsComponent } from './components/profile-card/posts/posts.component';
 import { FollowComponent } from './components/follow/follow.component';
-
+import { UserProfilePageComponent } from './views/user-profile-page/user-profile-page.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AuthInfoService } from './services/authInfo.service';
 
 
 @NgModule({
@@ -50,6 +52,8 @@ import { FollowComponent } from './components/follow/follow.component';
     FollowersComponent,
     PostsComponent,
     FollowComponent,
+    UserProfilePageComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,8 @@ import { FollowComponent } from './components/follow/follow.component';
     StateService,
     AuthService,
     PostService,
-    UserService
+    UserService,
+    AuthInfoService
   ],
   bootstrap: [AppComponent]
 })

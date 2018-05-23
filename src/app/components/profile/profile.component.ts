@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from 'angular-2-local-storage';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../../app.constant';
 import { Post } from '../../app.interface';
 import { PostService } from '../../services/post.service';
 import { UserService } from '../../services/user.service';
+import { AuthInfoService } from '../../services/authInfo.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,14 +13,12 @@ import { UserService } from '../../services/user.service';
 })
 export class ProfileComponent implements OnInit {
   private activeCard: string;
-  constructor(private storage: LocalStorageService,
+  constructor(private userInfo: AuthInfoService,
     private postService: PostService,
     private userService: UserService) {
     this.activeCard = "Posts"
-    
-    let userInfo: any = storage.get('userInfo');
-    this.postService.getProfilePost();
-    this.userService.getUserInformation(`${userInfo.id}${userInfo.username}`);
+    this.postService.getProfilePost(`${this.userInfo.info.id}${this.userInfo.info.username}`);
+    this.userService.getUserInformation(`${this.userInfo.info.id}${this.userInfo.info.username}`);
   }
 
   ngOnInit() {

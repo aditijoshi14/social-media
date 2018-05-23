@@ -10,10 +10,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FeedComponent implements OnInit {
   constructor(private postService: PostService) {
-    postService.loadFeedFollowing();
   }
 
-
   ngOnInit() {
+   this.postService.loadFeedFollowing();
   }
 }

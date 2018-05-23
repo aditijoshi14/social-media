@@ -10,6 +10,7 @@ export class SignInPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    //this..loadFeedFollowing();
   }
 
 }

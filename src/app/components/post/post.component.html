@@ -1,10 +1,10 @@
 <div class="post">
   <div class="post_photo">
-    <img src="{{post_image_src}}">
+    <img src="{{post_image_src}}" (click) = "goProfile()">
   </div>
   <div class="post_main">
     <div class="post_main_info">
-      <span>{{post.postContributerFullName}}</span> . {{post.timePosted | amTimeAgo}}
+      <span (click) = "goProfile()">{{post.postContributerFullName}}</span> . {{post.timePosted | amTimeAgo}}
     </div>
     <div class="post_main_content">
       <pre>{{post.postContent}}</pre>

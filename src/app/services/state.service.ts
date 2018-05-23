@@ -1,13 +1,20 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthInfoService } from './authInfo.service';
 
 @Injectable()
-export class StateService{
-    constructor(private route: Router, 
-        private activatedRouter: ActivatedRoute){
+export class StateService {
+    constructor(private router: Router,
+        private activatedRouter: ActivatedRoute,
+        private authInfoService: AuthInfoService
+    ) {
     }
 
-    go(stateName): void{
-        this.route.navigate([stateName]);
+    go(stateName: string): void {
+        if (stateName.substring(0, 2) == 'u/' &&
+            stateName.substring(2) == `${this.authInfoService.info.id}${this.authInfoService.info.username}`) {
+            stateName = "profile"
+        }
+        this.router.navigate([stateName]);
     }
 }

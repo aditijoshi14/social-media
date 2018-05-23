@@ -2,5 +2,5 @@
   <app-follow [follow] = "following"></app-follow>
 </div>
 <div class = "no_following" *ngIf= "checkIfEmpty()">
-  You are not following anyone!
+  {{noFollowingMessage}}
 </div>

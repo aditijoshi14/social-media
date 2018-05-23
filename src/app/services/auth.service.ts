@@ -6,6 +6,9 @@ import { Subscriber } from 'rxjs';
 import * as _ from 'lodash';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { CookieService } from 'ngx-cookie';
+import { UserService } from './user.service';
+import { PostService } from './post.service';
+import { AuthInfoService } from './authInfo.service';
 
 
 @Injectable()
@@ -17,7 +20,8 @@ export class AuthService {
     constructor(private httpClient: HttpClient,
         private stateService: StateService,
         private storage: LocalStorageService,
-        private cookie: CookieService
+        private cookie: CookieService,
+        private authInfoSerivce: AuthInfoService
     ) {
         this.hasError = false;
         this.isRememberEnabled = false;
@@ -105,6 +109,7 @@ export class AuthService {
                     userInfo.username = data.username;
                     userInfo.fullName = data.fullName;
                     this.storage.set('userInfo', userInfo);
+                    this.authInfoSerivce.setInfo();
                     this.stateService.go("feed");
                     // Added userId in the server
                     data.userId = `${data.id}${data.username}`
@@ -131,6 +136,7 @@ export class AuthService {
                         userInfo.username = data[0].username;
                         userInfo.fullName = data[0].fullName;
                         this.storage.set('userInfo', userInfo);
+                        this.authInfoSerivce.setInfo();
 
                         // Check if remember me is checked. If checked, store username 
                         // and password in cookie.
@@ -139,7 +145,6 @@ export class AuthService {
                         }else{
                             this.cookie.remove("credential");
                         }
-
                         this.stateService.go("feed");
                     }
                 },

@@ -3,6 +3,7 @@ import { StateService } from '../../services/state.service';
 import { AuthService } from '../../services/auth.service';
 import { CookieService } from 'ngx-cookie';
 import * as _ from 'lodash';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,9 +16,10 @@ export class SignInComponent implements OnInit {
   private isRememberEnabled: boolean;
   constructor(private stateService: StateService,
     private authService: AuthService,
-    private cookie: CookieService
+    private cookie: CookieService,
+    private route: ActivatedRoute
   ) {
-    this.user = {};
+    route.params.subscribe(val => {this.user = {};
     // Checking if the user selected remember me previously or not
     if (!_.isUndefined(this.cookie.get('credential'))) {
       var temp: any = JSON.parse(this.cookie.get('credential'));
@@ -26,10 +28,10 @@ export class SignInComponent implements OnInit {
       this.authService.isRememberEnabled = true;
       this.isRememberEnabled = true;
     }
+  })
   }
 
   ngOnInit() {
-
   }
 
   logIn(): void {

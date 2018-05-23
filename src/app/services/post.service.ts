@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Constants } from '../app.constant'
-import { LocalStorageService } from 'angular-2-local-storage';
+import { Constants } from '../app.constant';
 import { StateService } from './state.service';
 import { Post } from '../app.interface';
 import { MomentModule } from 'ngx-moment';
+import { AuthInfoService } from './authInfo.service';
 
 @Injectable()
 
 export class PostService {
-    private info: any;
     private postInput: string;
     private inputCharacters: number;
     private profilePosts: Array<Post>;
@@ -19,17 +18,16 @@ export class PostService {
     private followingList: String;
 
     constructor(private httpClient: HttpClient,
-        private storage: LocalStorageService,
-        private stateService: StateService) {
-        this.info = this.storage.get('userInfo');
-        this.postInput = "";
-        this.inputCharacters = 300;
-        this.currentDate = new Date();
-        this.followingList = new String("");
+        private stateService: StateService,
+        private authInfoService: AuthInfoService) {
+            this.postInput = "";
+            this.inputCharacters = 300;
+            this.currentDate = new Date();
+            this.followingList = new String("");
     }
 
     loadFeedFollowing() {
-        this.httpClient.get(`${Constants.BASE_URL}/members_info?username=${this.info.username}`).
+        this.httpClient.get(`${Constants.BASE_URL}/members_info?username=${this.authInfoService.info.username}`).
             subscribe(
                 (data: any) => {
                     for (let user of data[0].following){
@@ -40,8 +38,7 @@ export class PostService {
             )
     }
     loadFeedPosts() {
-        console.log(`${Constants.BASE_URL}/posts?postContributerId=${this.info.id}${this.info.username}${this.followingList}`);
-        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${this.info.id}${this.info.username}${this.followingList}`).
+        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${this.authInfoService.info.id}${this.authInfoService.info.username}${this.followingList}`).
             subscribe(
                 (data: any) => {
                     this.feedPosts = data;
@@ -52,11 +49,12 @@ export class PostService {
     }
 
     post(content): void {
+       // this.getRequiredData();
         var post: any = {};
-        post.postContributerId = `${this.info.id}${this.info.username}`;
+        post.postContributerId = `${this.authInfoService.info.id}${this.authInfoService.info.username}`;
         post.postContent = content;
         post.numVotes = 0;
-        post.postContributerFullName = this.info.fullName;
+        post.postContributerFullName = this.authInfoService.info.fullName;
         post.timePosted = new Date();
 
         this.httpClient.post(`${Constants.BASE_URL}/posts`, post).subscribe(
@@ -80,8 +78,8 @@ export class PostService {
         }
     }
 
-    getProfilePost() {
-        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${this.info.id}${this.info.username}`).subscribe(
+    getProfilePost(userId) {
+        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${userId}`).subscribe(
             (data: any) => {
                 this.profilePosts = data;
                 this.profilePosts.reverse();
@@ -89,5 +87,11 @@ export class PostService {
             },
             err => { }
         )
+    }
+
+    clear(){
+        this.profilePosts = [];
+        this.feedPosts = [];
+        this.followingList = "";
     }
 }

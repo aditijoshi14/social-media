@@ -10,7 +10,7 @@ import { Post } from '../../../app.interface';
 export class PostsComponent implements OnInit {
   private posts: Post;
   constructor(private postService:PostService) {
-    this.postService.getProfilePost();
+    //this.postService.getProfilePost();
    }
 
   ngOnInit() {

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../../app.interface';
 import { PostService } from '../../services/post.service';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'app-post',
@@ -15,11 +16,16 @@ export class PostComponent implements OnInit {
   private post_numVotes: number;
   @Input() post: Post;
   
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService,
+    private stateService: StateService) {
   }
 
   ngOnInit() {
     this.post_image_src = "../../../assets/images/profile.jpg"
+  }
+
+  goProfile(){
+    this.stateService.go(`u/${this.post.postContributerId}`);
   }
 
 }

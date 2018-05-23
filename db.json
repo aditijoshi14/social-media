@@ -20,7 +20,8 @@
       "password": "asdf1234",
       "following": [],
       "follower": [
-        {"fullName":"Aditi Joshi", "userId":"1joshiad"}
+        {"fullName":"Aditi Joshi", "userId":"1joshiad"},
+        {"fullName": "John Doe", "userId": "3doejohn"}
       ],
       "id": 2,
       "userId": "2smithjohn"
@@ -30,7 +31,9 @@
       "email": "doejohn@gmail.com",
       "username": "doejohn",
       "password": "asdf1234",
-      "following": [],
+      "following": [
+        {"fullName": "John Smith", "userId": "2smithjohn"}
+      ],
       "follower": [
         {"fullName":"Aditi Joshi", "userId":"1joshiad"}
       ],

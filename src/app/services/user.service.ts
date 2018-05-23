@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { LocalStorageService } from 'angular-2-local-storage';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../app.constant';
 import { Follow } from '../app.interface';
@@ -18,7 +17,7 @@ export class UserService{
                 this.userFullInfo.fullName = data[0].fullName;
                 this.userFullInfo.username = data[0].username;
                 this.userFullInfo.userId = data[0].userId;
- 
+
                 let followers = [];
                 followers = data[0].follower;
                 this.userFullInfo.followers = followers;
@@ -30,5 +29,9 @@ export class UserService{
                 this.userFullInfo.followingLength = following.length;
             }
         )
+    }
+
+    clear(){
+        this.userFullInfo = {};
     }
 }
