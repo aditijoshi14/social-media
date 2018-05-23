@@ -10,26 +10,32 @@
           </div>
         </div>
         <div class="user_info_stats">
-          <div>Posts
+          <div (click) = "activate('Posts')">Posts
             <br>
-            <span>{{postService.profilePostLength}}</span>
+            <span [ngClass]= "{'active': activeCard == 'Posts'}">
+              {{postService.profilePostLength}}
+            </span>
           </div>
-          <div>Followers
+          <div (click) = "activate('Followers')">Followers
             <br>
-            <span>{{userService.userFullInfo.followersLength}}</span>
+            <span [ngClass]= "{'active': activeCard == 'Followers'}">
+              {{userService.userFullInfo.followersLength}}
+            </span>
           </div>
-          <div>Following
+          <div (click) = "activate('Following')">Following
             <br>
-            <span>{{userService.userFullInfo.followingLength}}</span>
+            <span [ngClass]= "{'active': activeCard == 'Following'}">
+              {{userService.userFullInfo.followingLength}}
+            </span>
           </div>
         </div>
       </div>
     </div>
-    <div class="user_post_profile box-shadow">
-      <h1>Posts</h1>
-      <div *ngFor="let post of postService.profilePosts" class="user_post_profile_container">
-        <app-post [post]="post"></app-post>
-      </div>
+    <div class="user_card_profile box-shadow">
+      <h1>{{activeCard}}</h1>
+      <app-posts *ngIf="activeCard == 'Posts'"></app-posts>
+      <app-following *ngIf="activeCard == 'Following'"></app-following>
+      <app-followers *ngIf="activeCard == 'Followers'"></app-followers>
     </div>
   </div>
 </div>

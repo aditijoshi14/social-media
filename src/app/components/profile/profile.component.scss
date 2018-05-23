@@ -87,36 +87,33 @@
 
         } 
 
-        .user_post_profile{
+        .user_card_profile{
             margin: 15px 0px;
-            padding: 0px 20px;
+            padding: 10px 20px;
             width: 100%;
             background: $container-color;
             width:100%;
 
             h1{
                 font-size: 30px;
-                margin-top: 20px;
-            }
-
-            .user_post_profile_container{
-                margin: 10px 0px;
+                margin-top: 10px;
             }
         }
 
         @media only screen and (max-width: 600px) {
-            .user_post_profile{
+            .user_card_profile{
                 padding: 0;
+                padding-bottom: 10px;
 
                 h1{
                     padding-left:15px;
                 }
             }
-
-            .user_post_profile_container{
-               margin: 0px;
-            }
         }
     }   
+}
+
+.active{
+    border-bottom: 3px solid $primary-color-1;
 }
 

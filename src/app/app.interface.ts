@@ -6,3 +6,9 @@ export interface Post{
     postContributerId: string;
     timePosted: Date;
 }
+
+export interface Follow{
+    fullName: string;
+    userId: string;
+    username: string;
+}

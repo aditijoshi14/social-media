@@ -1,0 +1,12 @@
+@import '../../../../global/style/_colors.scss';
+@import '../../../../global/style/_fonts.scss';
+@import '../../../../global/style/_mixins.scss';
+
+.following_container{
+    @include profile-card-container;
+    margin:0;
+}
+
+.no_following{
+    @include no_follow;
+}

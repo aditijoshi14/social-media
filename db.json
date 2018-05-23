@@ -6,8 +6,8 @@
       "username": "joshiad",
       "password": "asdf1234",
       "following": [
-        "2smithjohn",
-        "3doejohn"
+        {"fullName": "John Smith", "userId": "2smithjohn"},
+        {"fullName": "John Doe", "userId": "3doejohn"}
       ],
       "follower": [],
       "id": 1,
@@ -20,7 +20,7 @@
       "password": "asdf1234",
       "following": [],
       "follower": [
-        "1joshiad"
+        {"fullName":"Aditi Joshi", "userId":"1joshiad"}
       ],
       "id": 2,
       "userId": "2smithjohn"
@@ -32,7 +32,7 @@
       "password": "asdf1234",
       "following": [],
       "follower": [
-        "1joshiad"
+        {"fullName":"Aditi Joshi", "userId":"1joshiad"}
       ],
       "id": 3,
       "userId": "3doejohn"

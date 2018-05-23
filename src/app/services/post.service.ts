@@ -32,8 +32,8 @@ export class PostService {
         this.httpClient.get(`${Constants.BASE_URL}/members_info?username=${this.info.username}`).
             subscribe(
                 (data: any) => {
-                    for (let userId of data[0].following){
-                        this.followingList = `${this.followingList}&postContributerId=${userId}`;
+                    for (let user of data[0].following){
+                        this.followingList = `${this.followingList}&postContributerId=${user.userId}`;
                     }
                     this.loadFeedPosts();
                 }, err => { }

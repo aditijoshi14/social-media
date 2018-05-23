@@ -12,18 +12,22 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  private posts: Post;
-
+  private activeCard: string;
   constructor(private storage: LocalStorageService,
     private postService: PostService,
     private userService: UserService) {
-      
+    this.activeCard = "Posts"
+    
     let userInfo: any = storage.get('userInfo');
     this.postService.getProfilePost();
     this.userService.getUserInformation(`${userInfo.id}${userInfo.username}`);
   }
 
   ngOnInit() {
+  }
+
+  activate(activate){
+    this.activeCard = activate;
   }
 
 }

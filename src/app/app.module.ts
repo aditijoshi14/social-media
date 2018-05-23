@@ -26,6 +26,10 @@ import { FeedPageComponent } from './views/feed-page/feed-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfilePageComponent } from './views/profile-page/profile-page.component';
 import { UserService } from './services/user.service';
+import { FollowingComponent } from './components/profile-card/following/following.component';
+import { FollowersComponent } from './components/profile-card/followers/followers.component';
+import { PostsComponent } from './components/profile-card/posts/posts.component';
+import { FollowComponent } from './components/follow/follow.component';
 
 
 
@@ -42,6 +46,10 @@ import { UserService } from './services/user.service';
     FeedPageComponent,
     ProfileComponent,
     ProfilePageComponent,
+    FollowingComponent,
+    FollowersComponent,
+    PostsComponent,
+    FollowComponent,
   ],
   imports: [
     BrowserModule,
