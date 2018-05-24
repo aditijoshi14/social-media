@@ -57,6 +57,16 @@
       ],
       "id": 3,
       "userId": "3doejohn"
+    },
+    {
+      "fullName": "Angie Doe",
+      "email": "doeangie@gmail.com",
+      "username": "doeangie",
+      "password": "asdf1234",
+      "following": [],
+      "follower": [],
+      "id": 4,
+      "userId": "4doeangie"
     }
   ],
   "posts": [

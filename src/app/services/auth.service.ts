@@ -111,10 +111,13 @@ export class AuthService {
                     userInfo.fullName = data.fullName;
                     this.storage.set('userInfo', userInfo);
                     this.authInfoSerivce.setInfo();
-                    this.stateService.go("feed");
                     // Added userId in the server
                     data.userId = `${data.id}${data.username}`
-                    this.httpClient.patch(`${Constants.BASE_URL}/members_info/${data.id}`, data).subscribe();
+                    this.httpClient.patch(`${Constants.BASE_URL}/members_info/${data.id}`, data).subscribe(
+                        data =>{
+                            this.stateService.go("feed");
+                        }
+                    );
                 },
                 err => {
                     this.hasError = true;
