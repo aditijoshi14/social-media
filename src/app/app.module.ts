@@ -33,6 +33,7 @@ import { FollowComponent } from './components/follow/follow.component';
 import { UserProfilePageComponent } from './views/user-profile-page/user-profile-page.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthInfoService } from './services/authInfo.service';
+import { RedirectAuthService } from './services/redirectAuth.service';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { AuthInfoService } from './services/authInfo.service';
     AuthService,
     PostService,
     UserService,
-    AuthInfoService
+    AuthInfoService,
+    RedirectAuthService
   ],
   bootstrap: [AppComponent]
 })

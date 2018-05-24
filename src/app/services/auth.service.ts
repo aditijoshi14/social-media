@@ -16,7 +16,7 @@ export class AuthService {
     errorMessage: string;
     hasError: boolean;
     isRememberEnabled: boolean;
-    
+
     constructor(private httpClient: HttpClient,
         private stateService: StateService,
         private storage: LocalStorageService,
@@ -86,7 +86,6 @@ export class AuthService {
                 } else {
                     this.hasError = true;
                     this.errorMessage = "This username has already been taken."
-
                 }
             },
             err => {
@@ -104,7 +103,7 @@ export class AuthService {
             post(`${Constants.BASE_URL}/members_info`, user).
             subscribe(
                 (data: any) => {
-                    let userInfo:any = {};
+                    let userInfo: any = {};
                     // Store user information in the local storage 
                     userInfo.id = data.id
                     userInfo.username = data.username;
@@ -114,7 +113,7 @@ export class AuthService {
                     // Added userId in the server
                     data.userId = `${data.id}${data.username}`
                     this.httpClient.patch(`${Constants.BASE_URL}/members_info/${data.id}`, data).subscribe(
-                        data =>{
+                        data => {
                             this.stateService.go("feed");
                         }
                     );
@@ -130,12 +129,12 @@ export class AuthService {
     signIn(userInfo): void {
         this.httpClient.get(`${Constants.BASE_URL}/members_info?username=${userInfo.username}&password=${userInfo.password}`).
             subscribe(
-                (data:any) => {
+                (data: any) => {
                     if (_.isEmpty(data)) {
                         this.errorMessage = ("Your username and password doesn't match.");
                     } else {
                         // Store user information in the local storage 
-                        let userInfo:any = {};
+                        let userInfo: any = {};
                         userInfo.id = data[0].id
                         userInfo.username = data[0].username;
                         userInfo.fullName = data[0].fullName;
@@ -144,9 +143,9 @@ export class AuthService {
 
                         // Check if remember me is checked. If checked, store username 
                         // and password in cookie.
-                        if(this.isRememberEnabled){
+                        if (this.isRememberEnabled) {
                             this.rememberMe(data[0]);
-                        }else{
+                        } else {
                             this.cookie.remove("credential");
                         }
                         this.stateService.go("feed");
@@ -158,12 +157,12 @@ export class AuthService {
             )
     }
 
-    rememberMe(data):void{
+    rememberMe(data): void {
         // Store username and password (Encoded in Base-64) in cookie.
-        let credential:any = {};
+        let credential: any = {};
         credential.username = data.username;
         credential.password = btoa(data.password);
         this.cookie.put('credential', JSON.stringify(credential));
-        
+
     }
 }

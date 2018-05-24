@@ -46,7 +46,6 @@ export class AuthInfoService implements CanActivate {
         return obs.pipe(
             map(data => {
                 if (!_.isEmpty(data)) {
-                    
                     this.info.fullName = data[0].fullName;
                     let followers = [];
                     followers = data[0].follower;
@@ -62,7 +61,6 @@ export class AuthInfoService implements CanActivate {
                     this.router.navigate([""]);
                     return false;
                 }
-
             }));
     }
 

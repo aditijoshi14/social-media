@@ -7,10 +7,12 @@ import { ProfilePageComponent } from './views/profile-page/profile-page.componen
 import { PostService } from './services/post.service';
 import { UserProfilePageComponent } from './views/user-profile-page/user-profile-page.component';
 import { AuthInfoService } from './services/authInfo.service';
+import { RedirectAuthService } from './services/redirectAuth.service';
 
 const signInState = {
   path: '', 
-  component: SignInPageComponent
+  component: SignInPageComponent,
+  canActivate: [RedirectAuthService]
 }
 
 const signUpState = {
