@@ -1,4 +1,4 @@
-<div *ngFor="let following of userService.userFullInfo.following" class="following_container">
+<div *ngFor="let following of authInfoService.info.following" class="following_container">
   <app-follow [follow] = "following"></app-follow>
 </div>
 <div class = "no_following" *ngIf= "checkIfEmpty()">

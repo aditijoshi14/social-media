@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
+import { AuthInfoService } from '../../../services/authInfo.service';
 
 @Component({
   selector: 'app-following',
@@ -9,8 +10,9 @@ import { Router } from '@angular/router';
 })
 export class FollowingComponent implements OnInit {
   private noFollowingMessage: string;
-  constructor(private userService: UserService, 
-  private router: Router) { 
+  constructor(private userService: UserService,
+    private authInfoService: AuthInfoService,
+    private router: Router) {
     this.noFollowingMessage = "";
   }
 
@@ -18,16 +20,16 @@ export class FollowingComponent implements OnInit {
   }
 
 
-  checkIfEmpty(){
-    if(this.userService.userFullInfo.followingLength == 0){
+  checkIfEmpty() {
+    if (this.authInfoService.info.followingLength == 0) {
       this.setNofollowingMessage();
       return true;
     }
   }
-  setNofollowingMessage(){
-    if(this.router.url.match("profile")){
+  setNofollowingMessage() {
+    if (this.router.url.match("profile")) {
       this.noFollowingMessage = "You are not following anyone!";
-    }else{
+    } else {
       this.noFollowingMessage = "Not following anyone";
     }
   }

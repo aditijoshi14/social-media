@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { AuthInfoService } from '../../services/authInfo.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,16 +12,20 @@ import { ActivatedRoute } from '@angular/router';
 export class UserProfileComponent implements OnInit {
   private activeCard: string;
   private userInfo: any;
-
+  private userId: string;
+  private followingStatus: string;
   constructor(private postService: PostService,
     private userService: UserService,
-    private route: ActivatedRoute) {
-      
-    this.activeCard = "Posts"
+    private route: ActivatedRoute, 
+    private authInfoService: AuthInfoService) {
     route.params.subscribe(
       params =>{
-        this.postService.getProfilePost(params.username);
-        this.userService.getUserInformation(params.username);
+        this.followingStatus = "";
+        this.activeCard = "Posts"
+        this.postService.getProfilePost(params.userId);
+        this.userService.getUserInformation(params.userId);
+        this.userId = params.userId;
+        this.userService.checkIfFollowing(this.userId);
       }
     );
     }

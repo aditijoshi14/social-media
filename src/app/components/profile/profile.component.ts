@@ -13,12 +13,11 @@ import { AuthInfoService } from '../../services/authInfo.service';
 })
 export class ProfileComponent implements OnInit {
   private activeCard: string;
-  constructor(private userInfo: AuthInfoService,
+  constructor(private authInfoService: AuthInfoService,
     private postService: PostService,
     private userService: UserService) {
     this.activeCard = "Posts"
-    this.postService.getProfilePost(`${this.userInfo.info.id}${this.userInfo.info.username}`);
-    this.userService.getUserInformation(`${this.userInfo.info.id}${this.userInfo.info.username}`);
+    this.postService.getProfilePost(this.authInfoService.info.userId);
   }
 
   ngOnInit() {

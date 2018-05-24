@@ -30,8 +30,9 @@
     "lodash": "^4.17.10",
     "ngx-cookie": "^3.0.1",
     "ngx-moment": "^2.0.0",
-    "rxjs": "^6.0.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "0.8.5",
+    "rxjs": "^6.2.0",
+    "rxjs-compat": "^6.2.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.1",

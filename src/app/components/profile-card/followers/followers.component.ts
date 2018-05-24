@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
+import { AuthInfoService } from '../../../services/authInfo.service';
 
 @Component({
   selector: 'app-followers',
@@ -11,7 +12,8 @@ export class FollowersComponent implements OnInit {
   private empty:boolean;
   private noFollowersMessage: string;
   constructor(private userService: UserService,
-    private router: Router) { 
+    private router: Router,
+    private authInfoService: AuthInfoService) { 
       this.noFollowersMessage = "";
   }
 
@@ -19,7 +21,7 @@ export class FollowersComponent implements OnInit {
   }
 
   checkIfEmpty(){
-    if(this.userService.userFullInfo.followersLength == 0){
+    if(this.authInfoService.info.followersLength == 0){
       this.setNofollowersMessage();
       return true;
     }

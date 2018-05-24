@@ -5,8 +5,8 @@
         <img src="../../../assets/images/profile.jpg">
         <div class="user_info_name">
           <div class="user_info_name_container">
-            <h1>{{userService.userFullInfo.fullName}} </h1>
-            <h3>@{{userService.userFullInfo.username}}</h3>
+            <h1>{{authInfoService.info.fullName}} </h1>
+            <h3>@{{authInfoService.info.username}}</h3>
           </div>
         </div>
         <div class="user_info_stats">
@@ -19,13 +19,13 @@
           <div (click) = "activate('Followers')">Followers
             <br>
             <span [ngClass]= "{'active': activeCard == 'Followers'}">
-              {{userService.userFullInfo.followersLength}}
+              {{authInfoService.info.followersLength}}
             </span>
           </div>
           <div (click) = "activate('Following')">Following
             <br>
             <span [ngClass]= "{'active': activeCard == 'Following'}">
-              {{userService.userFullInfo.followingLength}}
+              {{authInfoService.info.followingLength}}
             </span>
           </div>
         </div>

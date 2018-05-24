@@ -12,7 +12,7 @@ export class StateService {
 
     go(stateName: string): void {
         if (stateName.substring(0, 2) == 'u/' &&
-            stateName.substring(2) == `${this.authInfoService.info.id}${this.authInfoService.info.username}`) {
+            stateName.substring(2) == this.authInfoService.info.userId) {
             stateName = "profile"
         }
         this.router.navigate([stateName]);

@@ -21,7 +21,8 @@ export class AuthService {
         private stateService: StateService,
         private storage: LocalStorageService,
         private cookie: CookieService,
-        private authInfoSerivce: AuthInfoService
+        private authInfoSerivce: AuthInfoService,
+        private userService: UserService
     ) {
         this.hasError = false;
         this.isRememberEnabled = false;

@@ -1,4 +1,4 @@
-<div *ngFor="let follower of userService.userFullInfo.followers" class="followers_container">
+<div *ngFor="let follower of authInfoService.info.followers" class="followers_container">
     <app-follow [follow] = "follower"></app-follow>
 </div>
 

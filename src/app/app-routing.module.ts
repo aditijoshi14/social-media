@@ -6,6 +6,7 @@ import { FeedPageComponent } from './views/feed-page/feed-page.component';
 import { ProfilePageComponent } from './views/profile-page/profile-page.component';
 import { PostService } from './services/post.service';
 import { UserProfilePageComponent } from './views/user-profile-page/user-profile-page.component';
+import { AuthInfoService } from './services/authInfo.service';
 
 const signInState = {
   path: '', 
@@ -20,17 +21,19 @@ const signUpState = {
 const feedState = {
   path: 'feed', 
   component: FeedPageComponent,
-  controller: PostService,
+  canActivate: [AuthInfoService]
 }
 
 const profileState = {
   path: 'profile', 
-  component: ProfilePageComponent
+  component: ProfilePageComponent,
+  canActivate: [AuthInfoService]
 }
 
 const userProfile = {
-  path: 'u/:username',
-  component: UserProfilePageComponent
+  path: 'u/:userId',
+  component: UserProfilePageComponent,
+  canActivate: [AuthInfoService]
 }
 
 const routes: Routes = [

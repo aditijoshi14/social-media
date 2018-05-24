@@ -20,25 +20,21 @@ export class PostService {
     constructor(private httpClient: HttpClient,
         private stateService: StateService,
         private authInfoService: AuthInfoService) {
-            this.postInput = "";
-            this.inputCharacters = 300;
-            this.currentDate = new Date();
-            this.followingList = new String("");
+        this.postInput = "";
+        this.inputCharacters = 300;
+        this.currentDate = new Date();
+        this.followingList = new String("");
     }
 
     loadFeedFollowing() {
-        this.httpClient.get(`${Constants.BASE_URL}/members_info?username=${this.authInfoService.info.username}`).
-            subscribe(
-                (data: any) => {
-                    for (let user of data[0].following){
-                        this.followingList = `${this.followingList}&postContributerId=${user.userId}`;
-                    }
-                    this.loadFeedPosts();
-                }, err => { }
-            )
+        for (let user of this.authInfoService.info.following) {
+            this.followingList = `${this.followingList}&postContributerId=${user.userId}`;
+        }
+        this.loadFeedPosts();
     }
+
     loadFeedPosts() {
-        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${this.authInfoService.info.id}${this.authInfoService.info.username}${this.followingList}`).
+        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${this.authInfoService.info.userId}${this.followingList}`).
             subscribe(
                 (data: any) => {
                     this.feedPosts = data;
@@ -49,9 +45,8 @@ export class PostService {
     }
 
     post(content): void {
-       // this.getRequiredData();
         var post: any = {};
-        post.postContributerId = `${this.authInfoService.info.id}${this.authInfoService.info.username}`;
+        post.postContributerId = this.authInfoService.info.userId;
         post.postContent = content;
         post.numVotes = 0;
         post.postContributerFullName = this.authInfoService.info.fullName;
@@ -89,7 +84,7 @@ export class PostService {
         )
     }
 
-    clear(){
+    clear() {
         this.profilePosts = [];
         this.feedPosts = [];
         this.followingList = "";

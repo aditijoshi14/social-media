@@ -6,8 +6,14 @@
       "username": "joshiad",
       "password": "asdf1234",
       "following": [
-        {"fullName": "John Smith", "userId": "2smithjohn"},
-        {"fullName": "John Doe", "userId": "3doejohn"}
+        {
+          "fullName": "John Smith",
+          "userId": "2smithjohn"
+        },
+        {
+          "fullName": "John Doe",
+          "userId": "3doejohn"
+        }
       ],
       "follower": [],
       "id": 1,
@@ -20,8 +26,14 @@
       "password": "asdf1234",
       "following": [],
       "follower": [
-        {"fullName":"Aditi Joshi", "userId":"1joshiad"},
-        {"fullName": "John Doe", "userId": "3doejohn"}
+        {
+          "fullName": "Aditi Joshi",
+          "userId": "1joshiad"
+        },
+        {
+          "fullName": "John Doe",
+          "userId": "3doejohn"
+        }
       ],
       "id": 2,
       "userId": "2smithjohn"
@@ -32,10 +44,16 @@
       "username": "doejohn",
       "password": "asdf1234",
       "following": [
-        {"fullName": "John Smith", "userId": "2smithjohn"}
+        {
+          "fullName": "John Smith",
+          "userId": "2smithjohn"
+        }
       ],
       "follower": [
-        {"fullName":"Aditi Joshi", "userId":"1joshiad"}
+        {
+          "fullName": "Aditi Joshi",
+          "userId": "1joshiad"
+        }
       ],
       "id": 3,
       "userId": "3doejohn"
@@ -105,6 +123,14 @@
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-22T20:19:45.165Z",
       "id": 8
+    },
+    {
+      "postContributerId": "1joshiad",
+      "postContent": "Post 9",
+      "numVotes": 0,
+      "postContributerFullName": "Aditi Joshi",
+      "timePosted": "2018-05-24T04:47:44.121Z",
+      "id": 9
     }
   ]
 }
