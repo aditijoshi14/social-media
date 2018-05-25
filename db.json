@@ -15,7 +15,12 @@
           "userId": "3doejohn"
         }
       ],
-      "follower": [],
+      "follower": [
+        {
+          "fullName": "John Smith",
+          "userId": "2smithjohn"
+        }
+      ],
       "id": 1,
       "userId": "1joshiad"
     },
@@ -24,15 +29,20 @@
       "email": "john@dickinson.edu",
       "username": "smithjohn",
       "password": "asdf1234",
-      "following": [],
+      "following": [
+        {
+          "fullName": "John Doe",
+          "userId": "3doejohn"
+        },
+        {
+          "fullName": "Aditi Joshi",
+          "userId": "1joshiad"
+        }
+      ],
       "follower": [
         {
           "fullName": "Aditi Joshi",
           "userId": "1joshiad"
-        },
-        {
-          "fullName": "John Doe",
-          "userId": "3doejohn"
         }
       ],
       "id": 2,
@@ -53,6 +63,10 @@
         {
           "fullName": "Aditi Joshi",
           "userId": "1joshiad"
+        },
+        {
+          "fullName": "John Smith",
+          "userId": "2smithjohn"
         }
       ],
       "id": 3,

@@ -55,6 +55,7 @@ export class AuthInfoService implements CanActivate {
                     let following = [];
                     following = data[0].following;
                     this.info.following = following;
+                    
                     this.info.followingLength = following.length;
                     return true;
                 } else {

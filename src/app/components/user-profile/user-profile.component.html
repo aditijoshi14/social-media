@@ -1,42 +1,44 @@
 <div class="profile">
-    <div class="profile_container">
-      <div class="user_info_profile box-shadow">
-        <div class="user_info_profile_container">
-          <img src="../../../assets/images/profile.jpg">
-          <div class="user_info_name">
-            <div class="user_info_name_container">
-              <h1>{{userService.userFullInfo.fullName}} </h1>
-              <h3>@{{userService.userFullInfo.username}}</h3>
-              <button>{{userService.followingStatus}}</button>
-            </div>
+  <div class="profile_container">
+    <div class="user_info_profile box-shadow">
+      <div class="user_info_profile_container">
+        <img src="../../../assets/images/profile.jpg">
+        <div class="user_info_name">
+          <div class="user_info_name_container">
+            <h1>{{userService.userFullInfo.fullName}} </h1>
+            <h3>@{{userService.userFullInfo.username}}</h3>
+                    <button class="followButton" (click)="followUnfollow()" [ngClass]= "{'following': userService.followingStatus == 'Following'}">
+              {{userService.followingStatus}}
+            </button>
           </div>
-          <div class="user_info_stats">
-            <div (click) = "activate('Posts')">Posts
-              <br>
-              <span [ngClass]= "{'active': activeCard == 'Posts'}">
-                {{postService.profilePostLength}}
-              </span>
-            </div>
-            <div (click) = "activate('Followers')">Followers
-              <br>
-              <span [ngClass]= "{'active': activeCard == 'Followers'}">
-                {{userService.userFullInfo.followersLength}}
-              </span>
-            </div>
-            <div (click) = "activate('Following')">Following
-              <br>
-              <span [ngClass]= "{'active': activeCard == 'Following'}">
-                {{userService.userFullInfo.followingLength}}
-              </span>
-            </div>
+        </div>
+        <div class="user_info_stats">
+          <div (click)="activate('Posts')">Posts
+            <br>
+            <span [ngClass]="{'active': activeCard == 'Posts'}">
+              {{postService.profilePostLength}}
+            </span>
+          </div>
+          <div (click)="activate('Followers')">Followers
+            <br>
+            <span [ngClass]="{'active': activeCard == 'Followers'}">
+              {{userService.userFullInfo.followersLength}}
+            </span>
+          </div>
+          <div (click)="activate('Following')">Following
+            <br>
+            <span [ngClass]="{'active': activeCard == 'Following'}">
+              {{userService.userFullInfo.followingLength}}
+            </span>
           </div>
         </div>
       </div>
-      <div class="user_card_profile box-shadow">
-        <h1>{{activeCard}}</h1>
-        <app-posts *ngIf="activeCard == 'Posts'"></app-posts>
-        <app-following *ngIf="activeCard == 'Following'"></app-following>
-        <app-followers *ngIf="activeCard == 'Followers'"></app-followers>
-      </div>
+    </div>
+    <div class="user_card_profile box-shadow">
+      <h1>{{activeCard}}</h1>
+      <app-user-posts *ngIf="activeCard == 'Posts'"></app-user-posts>
+      <app-user-following *ngIf="activeCard == 'Following'"></app-user-following>
+      <app-user-followers *ngIf="activeCard == 'Followers'"></app-user-followers>
     </div>
   </div>
+</div>

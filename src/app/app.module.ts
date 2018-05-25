@@ -34,6 +34,9 @@ import { UserProfilePageComponent } from './views/user-profile-page/user-profile
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthInfoService } from './services/authInfo.service';
 import { RedirectAuthService } from './services/redirectAuth.service';
+import { UserFollowersComponent } from './components/user-profile-card/followers/userFollowers.component';
+import { UserFollowingComponent } from './components/user-profile-card/following/userFollowing.component';
+import { UserPostsComponent } from './components/user-profile-card/posts/userPosts.component';
 
 
 @NgModule({
@@ -55,6 +58,9 @@ import { RedirectAuthService } from './services/redirectAuth.service';
     FollowComponent,
     UserProfilePageComponent,
     UserProfileComponent,
+    UserFollowersComponent,
+    UserFollowingComponent,
+    UserPostsComponent
   ],
   imports: [
     BrowserModule,

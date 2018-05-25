@@ -20,6 +20,7 @@ export class UserProfileComponent implements OnInit {
     private authInfoService: AuthInfoService) {
     route.params.subscribe(
       params =>{
+        console.log(params);
         this.followingStatus = "";
         this.activeCard = "Posts"
         this.postService.getProfilePost(params.userId);
@@ -33,6 +34,9 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
   }
 
+  followUnfollow(){
+    this.userService.followOrUnfollow(this.userId, this.userService.userFullInfo.fullName);
+  }
   activate(activate){
     this.activeCard = activate;
   }

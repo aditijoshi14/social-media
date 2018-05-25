@@ -48,6 +48,25 @@
                         margin: 10px 0px;
                         color: $primary-color-2;
                     }
+
+                    .followButton{
+                        display: block;
+                        margin: auto;
+                        padding: 5px 15px;
+                        border: $primary-color-1 solid 2px;
+                        background: none;
+                        color: $primary-color-1;
+                        font-size: 14px;
+                    }
+                    .following{
+                        background: $primary-color-1;
+                        color: $text-color;
+                        border: black solid 1px;
+                    }
+
+                    .followButton:focus{
+                        outline: none;
+                    }
                 }
             }
 
@@ -116,4 +135,6 @@
 .active{
     border-bottom: 3px solid $primary-color-1;
 }
+
+
 

@@ -1,0 +1,7 @@
+<div *ngFor="let follower of userService.userFullInfo.followers" class="followers_container">
+    <app-follow [follow] = "follower"></app-follow>
+</div>
+
+<div class = "no_follower" *ngIf= "checkIfEmpty()">
+    {{noFollowersMessage}}
+</div>
