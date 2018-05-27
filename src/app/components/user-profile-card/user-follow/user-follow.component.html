@@ -1,0 +1,8 @@
+<div class="follow">
+  <img src="{{follow_image_src}}" (click)="goProfile()">
+  <div class="name" (click)="goProfile()">{{follow.fullName}}</div>
+
+  <button class="followButton" *ngIf = "follow.userId!=authInfoService.info.userId" [ngClass]="{'following': checkIfFollowing()}" (click) = "followUnfollow()">
+     {{followingNotfollowing}}
+  </button> 
+</div>

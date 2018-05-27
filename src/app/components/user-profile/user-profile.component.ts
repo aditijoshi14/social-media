@@ -20,7 +20,6 @@ export class UserProfileComponent implements OnInit {
     private authInfoService: AuthInfoService) {
     route.params.subscribe(
       params =>{
-        console.log(params);
         this.followingStatus = "";
         this.activeCard = "Posts"
         this.postService.getProfilePost(params.userId);

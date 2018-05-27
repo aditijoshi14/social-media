@@ -1,17 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StateService } from '../../services/state.service';
-import { UserService } from '../../services/user.service';
-import { AuthInfoService } from '../../services/authInfo.service';
+import { StateService } from '../../../services/state.service';
+import { UserService } from '../../../services/user.service';
+import { AuthInfoService } from '../../../services/authInfo.service';
 import * as _ from 'lodash';
 import { HttpClient } from '@angular/common/http';
-import { Constants } from '../../app.constant';
+import { Constants } from '../../../app.constant';
 
 @Component({
-  selector: 'app-follow',
-  templateUrl: './follow.component.html',
-  styleUrls: ['./follow.component.scss']
+  selector: 'app-user-follow',
+  templateUrl: './user-follow.component.html',
+  styleUrls: ['./user-follow.component.scss']
 })
-export class FollowComponent implements OnInit {
+export class UserFollowComponent implements OnInit {
   @Input() follow;
   private follow_image_src: string;
   private followingNotfollowing: string;

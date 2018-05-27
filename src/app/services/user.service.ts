@@ -27,7 +27,7 @@ export class UserService {
                 this.userFullInfo.userId = data[0].userId;
 
                 let followers = [];
-                followers = data[0].follower;
+                followers = data[0].followers;
                 this.userFullInfo.followers = followers;
                 this.userFullInfo.followersLength = followers.length;
 
@@ -38,7 +38,7 @@ export class UserService {
 
 
                 if (_.isUndefined(userId)) {
-                    this.authInfoService.info.follower = followers;
+                    this.authInfoService.info.followers = followers;
                     this.authInfoService.info.following = following;
                 }
             }
@@ -65,58 +65,68 @@ export class UserService {
             this.unfollow(followingUserId);
         } else {
             this.follow(followingUserId);
+
         }
     }
 
-    follow(followingUserId) {
+    follow(followingUserId, followingUserInfo?) {
         // Implemented this way because of the restriction in JSON server. 
-        if (followingUserId == this.userFullInfo.userId) {
-            let userData: any = this.authInfoService.info;
-            let header: HttpHeaders = new HttpHeaders();
-            let options = { headers: header.set('Content-Type', 'application/json') };
+        let userData: any = this.authInfoService.info;
+        let followingUserData: any = this.userFullInfo.userId == followingUserId ? this.userFullInfo : followingUserInfo;
+        let header: HttpHeaders = new HttpHeaders();
+        let options = { headers: header.set('Content-Type', 'application/json') };
 
-            userData.following.push({ "fullName": this.userFullInfo.fullName, "userId": this.userFullInfo.userId })
-            this.httpClient.patch(`${Constants.BASE_URL}/members_info/${userData.id}`, { "following": userData.following }, options).subscribe(
-                data => { },
-                err => {
-                    this.followingStatus = "Follow"
-                }
-            )
-            this.userFullInfo.followers.push({ "fullName": userData.fullName, "userId": userData.userId })
-            this.httpClient.patch(`${Constants.BASE_URL}/members_info/${this.userFullInfo.id}`, { "follower": this.userFullInfo.followers }, options).subscribe(
-                data => {
+        userData.following.push({ "fullName": followingUserData.fullName, "userId": followingUserData.userId, "id": followingUserData.id })
+        this.httpClient.patch(`${Constants.BASE_URL}/members_info/${userData.id}`, { "following": userData.following }, options).subscribe(
+            data => { },
+            err => {
+            }
+        )
+
+        followingUserData.followers.push({ "fullName": userData.fullName, "userId": userData.userId, "id": userData.id })
+        this.httpClient.patch(`${Constants.BASE_URL}/members_info/${followingUserData.id}`, { "followers": followingUserData.followers }, options).subscribe(
+            data => {
+                if (_.isUndefined(followingUserInfo)) {
                     this.followingStatus = "Following"
-                },
-                err => {
-                    this.followingStatus = "Follow"
+                    followingUserData.followersLength++;
                 }
-            )
-        }
+                userData.followingLength++;
+            },
+            err => {
+                _.remove(followingUserData.followers, { "fullName": userData.fullName, "userId": userData.userId, "id": userData.id });
+                _.remove(userData.following, { "fullName": followingUserData.fullName, "userId": followingUserData.userId, "id": followingUserData.id });
+            }
+        )
+
     }
 
-    unfollow(followingUserId) {
+    unfollow(followingUserId, followingUserInfo?) {
         // Implemented this way because of the restriction in JSON server. 
-        if (followingUserId == this.userFullInfo.userId) {
-            let userData: any = this.authInfoService.info;
-            let header: HttpHeaders = new HttpHeaders();
-            let options = { headers: header.set('Content-Type', 'application/json') };
+        let userData: any = this.authInfoService.info;
+        let followingUserData: any = this.userFullInfo.userId == followingUserId ? this.userFullInfo : followingUserInfo;
 
-            _.remove(userData.following, { "fullName": this.userFullInfo.fullName, "userId": this.userFullInfo.userId });
-            this.httpClient.patch(`${Constants.BASE_URL}/members_info/${userData.id}`, { "following": userData.following }, options).subscribe(
-                data => { },
-                err => {
-                    this.followingStatus = "Following"
-                }
-            )
-            _.remove(this.userFullInfo.followers, { "fullName": userData.fullName, "userId": userData.userId })
-            this.httpClient.patch(`${Constants.BASE_URL}/members_info/${this.userFullInfo.id}`, { "follower": this.userFullInfo.followers }, options).subscribe(
-                data => {
+        let header: HttpHeaders = new HttpHeaders();
+        let options = { headers: header.set('Content-Type', 'application/json') };
+
+        _.remove(userData.following, { "fullName": followingUserData.fullName, "userId": followingUserData.userId, "id": followingUserData.id });
+        this.httpClient.patch(`${Constants.BASE_URL}/members_info/${userData.id}`, { "following": userData.following }, options).subscribe(
+            data => { },
+            err => { }
+        )
+
+        _.remove(followingUserData.followers, { "fullName": userData.fullName, "userId": userData.userId, "id": userData.id })
+        this.httpClient.patch(`${Constants.BASE_URL}/members_info/${followingUserData.id}`, { "followers": followingUserData.followers }, options).subscribe(
+            data => {
+                if (_.isUndefined(followingUserInfo)) {
                     this.followingStatus = "Follow"
-                },
-                err => {
-                    this.followingStatus = "Following"
+                    followingUserData.followersLength--;
                 }
-            )
-        }
+                userData.followingLength--;
+            },
+            err => {
+                userData.following.push({ "fullName": followingUserData.fullName, "userId": followingUserData.userId, "id": followingUserData.id });
+                followingUserData.followers.push({ "fullName": userData.fullName, "userId": userData.userId, "id": userData.id });
+            }
+        )
     }
 }

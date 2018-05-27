@@ -1,5 +1,5 @@
 <div *ngFor="let following of userService.userFullInfo.following" class="following_container">
-  <app-follow [follow] = "following"></app-follow>
+  <app-user-follow [follow] = "following"></app-user-follow>
 </div>
 <div class = "no_following" *ngIf= "checkIfEmpty()">
   {{noFollowingMessage}}

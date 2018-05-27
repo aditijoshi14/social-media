@@ -37,6 +37,7 @@ import { RedirectAuthService } from './services/redirectAuth.service';
 import { UserFollowersComponent } from './components/user-profile-card/followers/userFollowers.component';
 import { UserFollowingComponent } from './components/user-profile-card/following/userFollowing.component';
 import { UserPostsComponent } from './components/user-profile-card/posts/userPosts.component';
+import { UserFollowComponent } from './components/user-profile-card/user-follow/user-follow.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { UserPostsComponent } from './components/user-profile-card/posts/userPos
     UserProfileComponent,
     UserFollowersComponent,
     UserFollowingComponent,
-    UserPostsComponent
+    UserPostsComponent,
+    UserFollowComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-@import '../../../global/style/_colors.scss';
+@import '../../../../global/style/_colors.scss';
 .follow{
     display: flex;
     border: 1px solid $border-color;
@@ -18,7 +18,7 @@
             border-width: 1px 0;
     }
 
-    .followButton{
+    .followButton, .buttonProfile{
         display: block;
         margin-left: auto;
         padding: 5px 15px;
@@ -28,7 +28,7 @@
         font-size: 14px;
     }
     
-    .following{
+    .following, .buttonProfile{
         background: $primary-color-1;
         color: $text-color;
         border: black solid 1px;

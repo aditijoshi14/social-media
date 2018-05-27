@@ -8,19 +8,11 @@
       "following": [
         {
           "fullName": "John Smith",
-          "userId": "2smithjohn"
-        },
-        {
-          "fullName": "John Doe",
-          "userId": "3doejohn"
+          "userId": "2smithjohn",
+          "id": 2
         }
       ],
-      "follower": [
-        {
-          "fullName": "John Smith",
-          "userId": "2smithjohn"
-        }
-      ],
+      "followers": [],
       "id": 1,
       "userId": "1joshiad"
     },
@@ -32,17 +24,20 @@
       "following": [
         {
           "fullName": "John Doe",
-          "userId": "3doejohn"
-        },
-        {
-          "fullName": "Aditi Joshi",
-          "userId": "1joshiad"
+          "userId": "3doejohn",
+          "id": 3
         }
       ],
-      "follower": [
+      "followers": [
         {
           "fullName": "Aditi Joshi",
-          "userId": "1joshiad"
+          "userId": "1joshiad",
+          "id": 1
+        },
+        {
+          "fullName": "John Doe",
+          "userId": "3doejohn",
+          "id": 3
         }
       ],
       "id": 2,
@@ -56,17 +51,15 @@
       "following": [
         {
           "fullName": "John Smith",
-          "userId": "2smithjohn"
+          "userId": "2smithjohn",
+          "id": 2
         }
       ],
-      "follower": [
-        {
-          "fullName": "Aditi Joshi",
-          "userId": "1joshiad"
-        },
+      "followers": [
         {
           "fullName": "John Smith",
-          "userId": "2smithjohn"
+          "userId": "2smithjohn",
+          "id": 2
         }
       ],
       "id": 3,
@@ -78,7 +71,7 @@
       "username": "doeangie",
       "password": "asdf1234",
       "following": [],
-      "follower": [],
+      "followers": [],
       "id": 4,
       "userId": "4doeangie"
     }
