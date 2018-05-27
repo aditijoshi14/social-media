@@ -51,7 +51,7 @@ export class UserService {
 
     checkIfFollowing(followingUserId): boolean {
         let following = this.authInfoService.info.following;
-        if (_.some(following, { "userId": `${followingUserId}` })) {
+        if (_.some(following, {"userId": `${followingUserId}`})) {
             this.followingStatus = "Following"
             return true;
         } else {

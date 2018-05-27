@@ -43,7 +43,17 @@
         text-align: center;
         display: flex;
         flex-direction: column;
+        
+        i{
+            font-weight: bold;
+        }
+        
+        .active{
+            color: $primary-color-1
+        }
     }
+
+    
 }
 
 @media only screen and (max-width: 600px) {

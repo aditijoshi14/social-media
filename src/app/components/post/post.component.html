@@ -11,8 +11,8 @@
     </div>
   </div>
   <div class="vote">
-      <fa name ="angle-up"></fa>
+      <i class="fa fa-angle-up" [ngClass] = "{'active': post.up}" (click) = "upVote()"></i>
       {{post.numVotes}}
-      <fa name ="angle-down"></fa>
+      <i class="fa fa-angle-down" [ngClass] = "{'active': post.down}" (click) = "downVote()"></i>
     </div>
 </div>

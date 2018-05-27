@@ -83,7 +83,9 @@
       "numVotes": 0,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-21T06:03:18.418Z",
-      "id": 1
+      "id": 1,
+      "upVoteId": [],
+      "downVoteId": []
     },
     {
       "postContributerId": "1joshiad",
@@ -91,7 +93,9 @@
       "numVotes": 0,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-22T06:03:18.418Z",
-      "id": 2
+      "id": 2,
+      "upVoteId": [],
+      "downVoteId": []
     },
     {
       "postContributerId": "1joshiad",
@@ -99,7 +103,9 @@
       "numVotes": 0,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-22T06:19:49.367Z",
-      "id": 3
+      "id": 3,
+      "upVoteId": [],
+      "downVoteId": []
     },
     {
       "postContributerId": "1joshiad",
@@ -107,23 +113,33 @@
       "numVotes": 0,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-22T06:24:10.846Z",
-      "id": 4
+      "id": 4,
+      "upVoteId": [],
+      "downVoteId": []
     },
     {
       "postContributerId": "2smithjohn",
       "postContent": "Post 5",
-      "numVotes": 0,
+      "numVotes": -1,
       "postContributerFullName": "John Smith",
       "timePosted": "2018-05-22T18:30:05.086Z",
-      "id": 5
+      "id": 5,
+      "upVoteId": [],
+      "downVoteId": [
+        "3doejohn"
+      ]
     },
     {
       "postContributerId": "2smithjohn",
       "postContent": "Post 6",
-      "numVotes": 0,
+      "numVotes": -1,
       "postContributerFullName": "John Smith",
       "timePosted": "2018-05-22T18:30:16.392Z",
-      "id": 6
+      "id": 6,
+      "upVoteId": [],
+      "downVoteId": [
+        "3doejohn"
+      ]
     },
     {
       "postContributerId": "1joshiad",
@@ -131,7 +147,9 @@
       "numVotes": 0,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-22T19:04:53.693Z",
-      "id": 7
+      "id": 7,
+      "upVoteId": [],
+      "downVoteId": []
     },
     {
       "postContributerId": "1joshiad",
@@ -139,15 +157,21 @@
       "numVotes": 0,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-22T20:19:45.165Z",
-      "id": 8
+      "id": 8,
+      "upVoteId": [],
+      "downVoteId": []
     },
     {
       "postContributerId": "1joshiad",
       "postContent": "Post 9",
-      "numVotes": 0,
+      "numVotes": 1,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-24T04:47:44.121Z",
-      "id": 9
+      "id": 9,
+      "upVoteId": [
+        "3doejohn"
+      ],
+      "downVoteId": []
     }
   ]
 }
