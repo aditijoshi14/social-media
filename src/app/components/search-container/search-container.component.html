@@ -1,0 +1,6 @@
+<div class= "search-container" *ngFor="let user of searchService.searchList">
+  <app-search [search]="user"></app-search>
+</div>
+<div class="noMatch" *ngIf="searchService.noMatch">
+  No Matches
+</div>

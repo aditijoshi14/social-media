@@ -40,11 +40,19 @@
             margin: 0px;
             height: 1em;
             width: 100%;
+            border:none;
         }
 
-        fa{
-            padding: 1px 8px;
+        i{
+            padding: 0px 8px;
         }
+    }
+
+    .search-container{
+        width: 100%;
+        background: $container-color;
+        position: absolute;
+        margin-top: 3px;
     }
 
     .nav-menu{
@@ -52,7 +60,7 @@
         display: flex;
         justify-content: flex-end;
 
-        fa{
+        i{
             color: $icon-color;
             font-size: 25px;
             padding: 0px 10px; 
@@ -61,7 +69,7 @@
 }
 
 @media only screen and (max-width: 380px) {
-    .nav-bar .nav-menu fa{
+    .nav-bar .nav-menu i{
         padding: 0 5px;
         font-size: 20px;
     }

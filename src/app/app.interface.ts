@@ -14,3 +14,9 @@ export interface Follow {
     userId: string;
     username: string;
 }
+
+export interface SearchUser {
+    fullName: string;
+    userId: string;
+    username: string;
+}

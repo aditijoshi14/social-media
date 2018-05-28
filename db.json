@@ -10,6 +10,11 @@
           "fullName": "John Smith",
           "userId": "2smithjohn",
           "id": 2
+        },
+        {
+          "fullName": "Angie Doe",
+          "userId": "4doeangie",
+          "id": 4
         }
       ],
       "followers": [],
@@ -71,7 +76,13 @@
       "username": "doeangie",
       "password": "asdf1234",
       "following": [],
-      "followers": [],
+      "followers": [
+        {
+          "fullName": "Aditi Joshi",
+          "userId": "1joshiad",
+          "id": 1
+        }
+      ],
       "id": 4,
       "userId": "4doeangie"
     }
@@ -100,11 +111,13 @@
     {
       "postContributerId": "1joshiad",
       "postContent": "Post 3",
-      "numVotes": 0,
+      "numVotes": 1,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-22T06:19:49.367Z",
       "id": 3,
-      "upVoteId": [],
+      "upVoteId": [
+        "1joshiad"
+      ],
       "downVoteId": []
     },
     {
@@ -120,11 +133,13 @@
     {
       "postContributerId": "2smithjohn",
       "postContent": "Post 5",
-      "numVotes": -1,
+      "numVotes": 0,
       "postContributerFullName": "John Smith",
       "timePosted": "2018-05-22T18:30:05.086Z",
       "id": 5,
-      "upVoteId": [],
+      "upVoteId": [
+        "1joshiad"
+      ],
       "downVoteId": [
         "3doejohn"
       ]
@@ -164,14 +179,23 @@
     {
       "postContributerId": "1joshiad",
       "postContent": "Post 9",
-      "numVotes": 1,
+      "numVotes": 2,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-24T04:47:44.121Z",
       "id": 9,
       "upVoteId": [
-        "3doejohn"
+        "3doejohn",
+        "1joshiad"
       ],
       "downVoteId": []
+    },
+    {
+      "postContributerId": "1joshiad",
+      "postContent": "Post 10",
+      "numVotes": 0,
+      "postContributerFullName": "Aditi Joshi",
+      "timePosted": "2018-05-28T15:09:09.498Z",
+      "id": 10
     }
   ]
 }

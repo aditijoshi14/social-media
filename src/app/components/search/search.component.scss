@@ -1,0 +1,19 @@
+@import '../../../global/style/_fonts.scss';
+@import '../../../global/style/_mixins.scss';
+
+.search{
+    display:flex;
+    padding: 5px;
+    border-bottom: 1px solid $border-color;
+
+    img{
+        width:30px;
+        height:30px;
+        border-radius: 50%;
+    }
+
+    .name{
+        line-height: 30px;
+        padding: 0 10px;
+    }
+}
