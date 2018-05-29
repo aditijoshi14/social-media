@@ -7,14 +7,14 @@
       "password": "asdf1234",
       "following": [
         {
-          "fullName": "John Smith",
-          "userId": "2smithjohn",
-          "id": 2
-        },
-        {
           "fullName": "Angie Doe",
           "userId": "4doeangie",
           "id": 4
+        },
+        {
+          "fullName": "John Smith",
+          "userId": "2smithjohn",
+          "id": 2
         }
       ],
       "followers": [],
@@ -35,14 +35,14 @@
       ],
       "followers": [
         {
-          "fullName": "Aditi Joshi",
-          "userId": "1joshiad",
-          "id": 1
-        },
-        {
           "fullName": "John Doe",
           "userId": "3doejohn",
           "id": 3
+        },
+        {
+          "fullName": "Aditi Joshi",
+          "userId": "1joshiad",
+          "id": 1
         }
       ],
       "id": 2,
@@ -196,6 +196,22 @@
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-28T15:09:09.498Z",
       "id": 10
+    },
+    {
+      "postContributerId": "1joshiad",
+      "postContent": "Post 11",
+      "numVotes": 0,
+      "postContributerFullName": "Aditi Joshi",
+      "timePosted": "2018-05-28T20:15:51.289Z",
+      "id": 11
+    },
+    {
+      "postContributerId": "1joshiad",
+      "postContent": "Post 10",
+      "numVotes": 0,
+      "postContributerFullName": "Aditi Joshi",
+      "timePosted": "2018-05-28T20:18:03.484Z",
+      "id": 12
     }
   ]
 }

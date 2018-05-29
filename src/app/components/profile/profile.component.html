@@ -10,21 +10,21 @@
           </div>
         </div>
         <div class="user_info_stats">
-          <div (click) = "activate('Posts')">Posts
+          <div (click)="activate('Posts')">Posts
             <br>
-            <span [ngClass]= "{'active': activeCard == 'Posts'}">
+            <span [ngClass]="{'active': activeCard == 'Posts'}">
               {{postService.profilePostLength}}
             </span>
           </div>
-          <div (click) = "activate('Followers')">Followers
+          <div (click)="activate('Followers')">Followers
             <br>
-            <span [ngClass]= "{'active': activeCard == 'Followers'}">
+            <span [ngClass]="{'active': activeCard == 'Followers'}">
               {{authInfoService.info.followersLength}}
             </span>
           </div>
-          <div (click) = "activate('Following')">Following
+          <div (click)="activate('Following')">Following
             <br>
-            <span [ngClass]= "{'active': activeCard == 'Following'}">
+            <span [ngClass]="{'active': activeCard == 'Following'}">
               {{authInfoService.info.followingLength}}
             </span>
           </div>

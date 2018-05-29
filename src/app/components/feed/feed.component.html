@@ -2,7 +2,36 @@
   <div class="feed_container">
     <div class="menu_feed">
       <div class="menu_feed_container">
-        stst
+        <div class="profile_container">
+          <img src="../../../assets/images/profile.jpg">
+
+          <div class="user_info_name">
+            <div class="user_info_name_container">
+              <h1>{{authInfoService.info.fullName}} </h1>
+              <h3>@{{authInfoService.info.username}}</h3>
+            </div>
+          </div>
+          <div class="user_info_stats">
+            <div>Posts
+              <br>
+              <span>
+                {{postService.profilePostLength}}
+              </span>
+            </div>
+            <div>Followers
+              <br>
+              <span>
+                {{authInfoService.info.followersLength}}
+              </span>
+            </div>
+            <div>Following
+              <br>
+              <span>
+                {{authInfoService.info.followingLength}}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="main_feed">

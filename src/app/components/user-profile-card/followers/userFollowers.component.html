@@ -1,5 +1,5 @@
 <div *ngFor="let followers of userService.userFullInfo.followers" class="followers_container">
-    <app-user-follow [follow] = "followers"></app-user-follow>
+    <app-follow [follow] = "followers"></app-follow>
 </div>
 
 <div class = "no_follower" *ngIf= "checkIfEmpty()">

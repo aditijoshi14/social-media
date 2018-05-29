@@ -58,6 +58,7 @@ export class PostService {
                 window.alert("Your post is successfully posted!");
                 this.postInput = "";
                 this.loadFeedPosts();
+                this.profilePostLength ++;
             }
             , err => {
                 window.alert("Error");

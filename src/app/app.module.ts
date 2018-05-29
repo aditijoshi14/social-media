@@ -37,7 +37,6 @@ import { RedirectAuthService } from './services/redirectAuth.service';
 import { UserFollowersComponent } from './components/user-profile-card/followers/userFollowers.component';
 import { UserFollowingComponent } from './components/user-profile-card/following/userFollowing.component';
 import { UserPostsComponent } from './components/user-profile-card/posts/userPosts.component';
-import { UserFollowComponent } from './components/user-profile-card/user-follow/user-follow.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchContainerComponent } from './components/search-container/search-container.component';
 import { SearchService } from './services/search.service';
@@ -65,7 +64,6 @@ import { SearchService } from './services/search.service';
     UserFollowersComponent,
     UserFollowingComponent,
     UserPostsComponent,
-    UserFollowComponent,
     SearchComponent,
     SearchContainerComponent
   ],
