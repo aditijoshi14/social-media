@@ -16,6 +16,7 @@ export class NavBarComponent implements OnInit {
   @ViewChild('searchBar')
   private searchBar: ElementRef
   private isProfileState: boolean;
+  private isFeedState: boolean;
   private wasInside: boolean;
 
   constructor(private stateService: StateService,
@@ -26,16 +27,18 @@ export class NavBarComponent implements OnInit {
     private authInfoService: AuthInfoService,
     private searchService: SearchService,
   ) {
-
-    if (this.router.url.match("\profile") || this.router.url.startsWith("/u")) {
-      this.isProfileState = true;
-    } else {
-      this.isProfileState = false;
-    }
-
+    this.isProfileState = false;
+    this.isFeedState = false;
   }
 
   ngOnInit() {
+    if (this.router.url.match("/profile") || this.router.url.startsWith("/u")) {
+      this.isProfileState = true;
+    } 
+
+    if (this.router.url.match("/feed")) {
+      this.isFeedState = true;
+    }
   }
 
   viewFeed(): void {

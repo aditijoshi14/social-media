@@ -101,11 +101,13 @@
     {
       "postContributerId": "1joshiad",
       "postContent": "Post 2",
-      "numVotes": 0,
+      "numVotes": 1,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-22T06:03:18.418Z",
       "id": 2,
-      "upVoteId": [],
+      "upVoteId": [
+        "1joshiad"
+      ],
       "downVoteId": []
     },
     {

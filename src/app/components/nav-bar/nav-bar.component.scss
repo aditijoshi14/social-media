@@ -11,6 +11,10 @@
         height: 200px;
     }
 
+    &.fixedMenu{
+        position:fixed;
+    }
+
     .nav-bar-container{
         max-width: 1012px;
         height: 70px;

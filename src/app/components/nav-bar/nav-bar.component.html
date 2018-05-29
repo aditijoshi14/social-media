@@ -1,4 +1,4 @@
-<div class="nav-bar" [ngClass]="{'increasedDivHeight': isProfileState}">
+<div class="nav-bar" [ngClass]="{'increasedDivHeight': isProfileState, 'fixedMenu': isFeedState}" >
   <div class="nav-bar-container">
     <img class="logo" src="/assets/images/logo.png" (click)="viewFeed()">
     <form class="search-bar">
