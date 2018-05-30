@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Constants } from '../app.constant';
-import { Follow } from '../app.interface';
+import { Follow, Notification } from '../app.interface';
 import { AuthInfoService } from './authInfo.service';
 import * as _ from 'lodash';
+import { NotificationService } from './notification.service';
 
 @Injectable()
 export class UserService {
@@ -12,7 +13,8 @@ export class UserService {
     followingStatus: string;
 
     constructor(private httpClient: HttpClient,
-        private authInfoService: AuthInfoService) {
+        private authInfoService: AuthInfoService, 
+        private notificationService: NotificationService) {
         this.userFullInfo = {};
         this.completed = false;
     }
@@ -69,6 +71,17 @@ export class UserService {
         }
     }
 
+    followNotification(followingUserId){
+        let notification: Notification = {} as any;
+        notification.userId = followingUserId;
+        notification.notificationContributerFullName = this.authInfoService.info.fullName;
+        notification.notificationContributerUserId = this.authInfoService.info.userId;
+        notification.notificationId = 1;
+        notification.timePosted = new Date();
+
+        this.notificationService.addNotification(notification);
+    }
+
     follow(followingUserId, followingUserInfo?) {
         // Implemented this way because of the restriction in JSON server. 
         let userData: any = this.authInfoService.info;
@@ -91,6 +104,7 @@ export class UserService {
                     followingUserData.followersLength++;
                 }
                 userData.followingLength++;
+                this.followNotification(followingUserId);
             },
             err => {
                 _.remove(followingUserData.followers, { "fullName": userData.fullName, "userId": userData.userId, "id": userData.id });

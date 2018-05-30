@@ -9,11 +9,7 @@ import { StateService } from '../../services/state.service';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  private post_name: string;
   private post_image_src: string;
-  private post_time: string;
-  private post_content: string;
-  private post_numVotes: number;
   @Input() post: Post;
 
   constructor(private postService: PostService,

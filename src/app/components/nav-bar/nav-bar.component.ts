@@ -6,6 +6,7 @@ import { PostService } from '../../services/post.service';
 import { UserService } from '../../services/user.service';
 import { AuthInfoService } from '../../services/authInfo.service';
 import { SearchService } from '../../services/search.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -26,6 +27,7 @@ export class NavBarComponent implements OnInit {
     private userService: UserService,
     private authInfoService: AuthInfoService,
     private searchService: SearchService,
+    private notificationService: NotificationService
   ) {
     this.isProfileState = false;
     this.isFeedState = false;
@@ -41,6 +43,10 @@ export class NavBarComponent implements OnInit {
     }
   }
 
+  viewNotification(){
+    this.notificationService.notificationOpen = !this.notificationService.notificationOpen;
+  }
+
   viewFeed(): void {
     this.stateService.go('feed');
   }
@@ -51,6 +57,7 @@ export class NavBarComponent implements OnInit {
     this.userService.clear();
     this.postService.clear();
     this.authInfoService.clear();
+    this.notificationService.clear();
   }
 
   viewProfile(): void {

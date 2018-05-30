@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from '../app.constant';
 import { StateService } from './state.service';
-import { Post } from '../app.interface';
+import { Post, Notification } from '../app.interface';
 import { MomentModule } from 'ngx-moment';
 import { AuthInfoService } from './authInfo.service';
 import * as _ from 'lodash';
+import { NotificationService } from './notification.service';
 
 @Injectable()
 
@@ -20,7 +21,9 @@ export class PostService {
 
     constructor(private httpClient: HttpClient,
         private stateService: StateService,
-        private authInfoService: AuthInfoService) {
+        private authInfoService: AuthInfoService,
+        private notificationService: NotificationService) {
+
         this.postInput = "";
         this.inputCharacters = 300;
         this.currentDate = new Date();
@@ -35,11 +38,10 @@ export class PostService {
     }
 
     loadFeedPosts() {
-        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${this.authInfoService.info.userId}${this.followingList}`).
+        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${this.authInfoService.info.userId}${this.followingList}&_sort=id&_order=desc`).
             subscribe(
                 (data: any) => {
                     this.feedPosts = data;
-                    this.feedPosts.reverse();
                 },
                 err => { }
             );
@@ -52,13 +54,15 @@ export class PostService {
         post.numVotes = 0;
         post.postContributerFullName = this.authInfoService.info.fullName;
         post.timePosted = new Date();
+        post.upVoteId = [];
+        post.downVoteId = [];
 
         this.httpClient.post(`${Constants.BASE_URL}/posts`, post).subscribe(
             data => {
                 window.alert("Your post is successfully posted!");
                 this.postInput = "";
                 this.loadFeedPosts();
-                this.profilePostLength ++;
+                this.profilePostLength++;
             }
             , err => {
                 window.alert("Error");
@@ -76,10 +80,9 @@ export class PostService {
     }
 
     getProfilePost(userId) {
-        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${userId}`).subscribe(
+        this.httpClient.get(`${Constants.BASE_URL}/posts?postContributerId=${userId}&_sort=id&_order=desc`).subscribe(
             (data: any) => {
                 this.profilePosts = data;
-                this.profilePosts.reverse();
                 this.profilePostLength = data.length;
             },
             err => { }
@@ -109,6 +112,7 @@ export class PostService {
                         "numVotes": data[0].numVotes - 1
                     }, data[0].numVotes - 1, post);
                     post.up = false;
+
                 } else if (ifVoted == 1) {
                     data[0].upVoteId.push(this.authInfoService.info.userId);
                     _.pull(data[0].downVoteId, this.authInfoService.info.userId);
@@ -119,6 +123,7 @@ export class PostService {
                     }, data[0].numVotes + 2, post);
                     post.up = true;
                     post.down = false;
+
                 } else {
                     data[0].upVoteId.push(this.authInfoService.info.userId);
                     this.changedArray(postId, {
@@ -126,6 +131,18 @@ export class PostService {
                         "numVotes": data[0].numVotes + 1
                     }, data[0].numVotes + 1, post);
                     post.up = true;
+                }
+
+                if (post.up == true) {
+                    let notification: Notification = {} as any;
+                    notification.userId = post.postContributerId;
+                    notification.notificationContributerFullName = this.authInfoService.info.fullName;
+                    notification.notificationContributerUserId = this.authInfoService.info.userId;
+                    notification.relatedPostId = postId;
+                    notification.notificationId = 2;
+                    notification.timePosted = new Date();
+
+                    this.notificationService.addNotification(notification);
                 }
             },
             err => { }

@@ -10,13 +10,15 @@ import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { of } from 'rxjs';
 import 'rxjs/add/observable/of';
+import { NotificationService } from './notification.service';
 
 @Injectable()
 export class AuthInfoService implements CanActivate {
     info: any;
     constructor(private storage: LocalStorageService,
         private httpClient: HttpClient,
-        private router: Router
+        private router: Router,
+        private notificationService: NotificationService
     ) {
         this.info = {};
     }
@@ -29,6 +31,7 @@ export class AuthInfoService implements CanActivate {
             this.info = this.storage.get('userInfo');
             this.info.userId = `${this.info.id}${this.info.username}`
             this.setInfo();
+            this.notificationService.getNotification();
             return this.getUserInformation();
         }
     }

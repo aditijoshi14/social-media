@@ -20,3 +20,12 @@ export interface SearchUser {
     userId: string;
     username: string;
 }
+
+export interface Notification{
+    userId: string;
+    notificationContributerFullName: string;
+    notificationContributerUserId: string;
+    notificationId: number;
+    relatedPostId?: number;
+    timePosted: Date;
+}

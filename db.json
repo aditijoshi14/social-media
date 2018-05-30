@@ -17,7 +17,13 @@
           "id": 2
         }
       ],
-      "followers": [],
+      "followers": [
+        {
+          "fullName": "John Smith",
+          "userId": "2smithjohn",
+          "id": 2
+        }
+      ],
       "id": 1,
       "userId": "1joshiad"
     },
@@ -31,6 +37,16 @@
           "fullName": "John Doe",
           "userId": "3doejohn",
           "id": 3
+        },
+        {
+          "fullName": "Aditi Joshi",
+          "userId": "1joshiad",
+          "id": 1
+        },
+        {
+          "fullName": "Angie Doe",
+          "userId": "4doeangie",
+          "id": 4
         }
       ],
       "followers": [
@@ -81,6 +97,11 @@
           "fullName": "Aditi Joshi",
           "userId": "1joshiad",
           "id": 1
+        },
+        {
+          "fullName": "John Smith",
+          "userId": "2smithjohn",
+          "id": 2
         }
       ],
       "id": 4,
@@ -181,13 +202,14 @@
     {
       "postContributerId": "1joshiad",
       "postContent": "Post 9",
-      "numVotes": 2,
+      "numVotes": 3,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-24T04:47:44.121Z",
       "id": 9,
       "upVoteId": [
         "3doejohn",
-        "1joshiad"
+        "1joshiad",
+        "2smithjohn"
       ],
       "downVoteId": []
     },
@@ -197,23 +219,70 @@
       "numVotes": 0,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-28T15:09:09.498Z",
-      "id": 10
+      "id": 10,
+      "upVoteId": [],
+      "downVoteId": []
     },
     {
       "postContributerId": "1joshiad",
       "postContent": "Post 11",
-      "numVotes": 0,
+      "numVotes": 1,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-28T20:15:51.289Z",
-      "id": 11
+      "id": 11,
+      "upVoteId": [
+        "2smithjohn"
+      ],
+      "downVoteId": []
     },
     {
       "postContributerId": "1joshiad",
       "postContent": "Post 10",
-      "numVotes": 0,
+      "numVotes": -1,
       "postContributerFullName": "Aditi Joshi",
       "timePosted": "2018-05-28T20:18:03.484Z",
-      "id": 12
+      "id": 12,
+      "upVoteId": [],
+      "downVoteId": [
+        "2smithjohn"
+      ]
+    }
+  ],
+  "notification": [
+    {
+      "userId": "1joshiad",
+      "notificationContributerFullName": "John Smith",
+      "notificationContributerUserId": "2smithjohn",
+      "relatedPostId": "3",
+      "notificationId": "2",
+      "timePosted": "2018-05-28T20:18:03.484Z",
+      "id": 1
+    },
+    {
+      "userId": "4doeangie",
+      "notificationContributerFullName": "John Smith",
+      "notificationContributerUserId": "2smithjohn",
+      "notificationId": "1",
+      "timePosted": "2018-05-30T03:21:23.645Z",
+      "id": 2
+    },
+    {
+      "userId": "1joshiad",
+      "notificationContributerFullName": "John Smith",
+      "notificationContributerUserId": "2smithjohn",
+      "relatedPostId": 9,
+      "notificationId": 2,
+      "timePosted": "2018-05-30T03:41:20.297Z",
+      "id": 3
+    },
+    {
+      "userId": "1joshiad",
+      "notificationContributerFullName": "John Smith",
+      "notificationContributerUserId": "2smithjohn",
+      "relatedPostId": 11,
+      "notificationId": 2,
+      "timePosted": "2018-05-30T03:44:51.642Z",
+      "id": 4
     }
   ]
 }

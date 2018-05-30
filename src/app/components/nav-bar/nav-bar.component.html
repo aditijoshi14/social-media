@@ -1,4 +1,4 @@
-<div class="nav-bar" [ngClass]="{'increasedDivHeight': isProfileState, 'fixedMenu': isFeedState}" >
+<div class="nav-bar" [ngClass]="{'increasedDivHeight': isProfileState, 'fixedMenu': isFeedState}">
   <div class="nav-bar-container">
     <img class="logo" src="/assets/images/logo.png" (click)="viewFeed()">
     <form class="search-bar">
@@ -11,7 +11,15 @@
       </div>
     </form>
     <div class="nav-menu">
-      <i class="fa fa-bell"></i>
+      <div class="notification">
+        <div *ngIf="notificationService.notificationOpen">
+          <i class="fa fa-sort-up"></i>
+          <div class="notification-container box-shadow">
+            <app-notification-container></app-notification-container>
+          </div>
+        </div>
+      </div>
+      <i class="fa fa-bell" (click)=viewNotification()></i>
       <i class="fa fa-user" (click)="viewProfile()"></i>
       <i class="fa fa-power-off" (click)="logOut()"></i>
     </div>

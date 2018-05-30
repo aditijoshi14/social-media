@@ -40,6 +40,9 @@ import { UserPostsComponent } from './components/user-profile-card/posts/userPos
 import { SearchComponent } from './components/search/search.component';
 import { SearchContainerComponent } from './components/search-container/search-container.component';
 import { SearchService } from './services/search.service';
+import { NotificationComponent } from './components/notification/notification.component';
+import { NotificationContainerComponent } from './components/notification-container/notification-container.component';
+import { NotificationService } from './services/notification.service';
 
 
 @NgModule({
@@ -65,7 +68,9 @@ import { SearchService } from './services/search.service';
     UserFollowingComponent,
     UserPostsComponent,
     SearchComponent,
-    SearchContainerComponent
+    SearchContainerComponent,
+    NotificationComponent,
+    NotificationContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +92,8 @@ import { SearchService } from './services/search.service';
     UserService,
     AuthInfoService,
     RedirectAuthService, 
-    SearchService
+    SearchService, 
+    NotificationService
   ],
   bootstrap: [AppComponent]
 })

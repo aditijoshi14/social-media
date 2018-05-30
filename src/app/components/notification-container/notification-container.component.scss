@@ -1,0 +1,11 @@
+@import '../../../global/style/_colors.scss';
+.notification-container{
+    width:300px;
+    max-width: 80vw;
+    max-height: 65vh;
+    overflow: scroll;
+}
+
+.noNotification{
+    padding: 10px;
+}

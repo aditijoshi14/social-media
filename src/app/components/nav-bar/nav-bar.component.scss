@@ -63,11 +63,32 @@
         flex-grow: 1;
         display: flex;
         justify-content: flex-end;
+        align-items: inherit;
 
         i{
             color: $icon-color;
             font-size: 25px;
             padding: 0px 10px; 
+        }
+
+        .notification{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+
+            i.fa.fa-sort-up {
+                margin-top: 15px;
+                font-size: 35px;
+                position: absolute;
+                padding-left:12px;
+            }
+
+            .notification-container{
+                position: absolute;
+                right: 100px;
+                top: 66px;
+                background: $container-color;
+            }
         }
     }
 }

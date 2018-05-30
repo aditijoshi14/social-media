@@ -1,0 +1,7 @@
+<div class="notification" (click) = "notificationClick()">
+  <img src={{notification_image_src}}>
+  <div class = "notification-content">
+    <span class="name">{{notification.notificationContributerFullName}}</span> {{notificationService.getNotificationContent(notification.notificationId)}} <br>
+    <span class ="date">{{notification.timePosted | amTimeAgo}}</span>
+  </div>
+</div>

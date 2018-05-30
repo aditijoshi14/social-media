@@ -59,8 +59,6 @@
 
 @media only screen and (max-width: 600px) {
     .post{
-        border: solid #efefef;
-        border-width: 1px 0;
         line-height: 20px;
         font-size: 14px;
         text-align: left;
@@ -74,6 +72,13 @@
             font-size: 17px;
             line-height: 22px;
         }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .post{
+        border: solid #efefef;
+        border-width: 1px 0;
     }
 }
 

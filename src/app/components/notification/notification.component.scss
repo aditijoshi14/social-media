@@ -1,0 +1,29 @@
+@import '../../../global/style/_colors.scss';
+.notification{
+    border: 1px solid $border-color;
+    padding:5px;
+    display:flex;
+    font-size:16px;
+
+    img{
+        width:40px;
+        height:40px;
+        border-radius: 50%;
+        padding: 0 5px;
+    }
+    .notification-content{
+        flex-grow: 1;
+        padding: 0 5px;
+        text-align: left;
+
+        .name{
+            font-weight:bold
+        }
+
+        .date{
+            color: $post-text-color-secondary;
+            font-size:14px;
+        }
+    }
+    
+}
